@@ -16,19 +16,6 @@ public enum ArrowPosition {
   case any
 }
 
-public struct Preferences {
-  var horizontalInsets: CGFloat = 20
-  var verticalInsets: CGFloat = 20
-  var contentHorizontalInsets: CGFloat = 10
-  var contentVerticalInsets: CGFloat = 10
-  var arrowWidth: CGFloat = 15
-  var arrowHeight: CGFloat = 10
-  
-  var animationDuration: TimeInterval = 0.3
-  
-  public init() { }
-}
-
 struct Constants {
   static let screenWidth = UIScreen.main.bounds.width
   static let screenHeight = UIScreen.main.bounds.height
@@ -38,13 +25,21 @@ public class NeatTipViewController: UIViewController {
   
   public var centerPoint: CGPoint
   public var arrowPosition: ArrowPosition
-  public var preferences: Preferences
+  public var preferences: NeatViewPreferences
   public var attributedString: NSAttributedString
+  
+  var layoutPreferences: NeatLayoutPreferences {
+    return preferences.layoutPreferences
+  }
+  
+  var animationPreferences: NeatAnimationPreferences {
+    return preferences.animationPreferences
+  }
   
   lazy var bubbleView: UIView = {
     let view = UIView()
-    view.backgroundColor = .white
     view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .white
     view.layer.masksToBounds = true
     view.layer.cornerRadius = 8
     
@@ -70,20 +65,41 @@ public class NeatTipViewController: UIViewController {
   }()
   
   lazy var arrowView: NeatArrowView = {
-    let arrow = NeatArrowView()
+    let arrow = NeatArrowView(with: arrowPosition)
     arrow.translatesAutoresizingMaskIntoConstraints = false
     
     return arrow
   }()
   
+  lazy var arrowConstraints: [NSLayoutConstraint] = {
+    var constraints = [
+      arrowView.widthAnchor.constraint(equalToConstant: layoutPreferences.arrowWidth),
+      arrowView.heightAnchor.constraint(equalToConstant: layoutPreferences.arrowHeight)
+    ]
+    switch arrowPosition {
+    case .bottom, .any:
+      constraints.append(contentsOf: arrowBottomConstraints)
+    default: break
+    }
+    
+    return constraints
+  }()
+  
+  lazy var arrowBottomConstraints: [NSLayoutConstraint] = {
+    return [
+      arrowView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor),
+      arrowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: centerPoint.x)
+    ]
+  }()
+  
   var distanceFromBottom: CGFloat {
     return view.bounds.height - centerPoint.y +
-      preferences.verticalInsets + preferences.arrowHeight
+      layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
   }
   
   public init(centerPoint: CGPoint,
               attributedString: NSAttributedString,
-              preferences: Preferences = Preferences(),
+              preferences: NeatViewPreferences = NeatViewPreferences(),
               arrowPosition: ArrowPosition = .any) {
     self.centerPoint = centerPoint
     self.attributedString = attributedString
@@ -130,7 +146,7 @@ public class NeatTipViewController: UIViewController {
   }
   
   public override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-    UIView.animate(withDuration: preferences.animationDuration,
+    UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
                     self?.backgroundView.alpha = 0
                    },
@@ -138,6 +154,7 @@ public class NeatTipViewController: UIViewController {
                     super.dismiss(animated: true)
                    })
   }
+  
   func addSubviews() {
     view.backgroundColor = .clear
     view.addSubview(backgroundView)
@@ -148,29 +165,28 @@ public class NeatTipViewController: UIViewController {
   }
   
   func activateConstraints() {
-    NSLayoutConstraint.activate([
+    var constraints = [
       backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
       backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       
-      bubbleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: preferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -preferences.horizontalInsets),
+      bubbleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: layoutPreferences.horizontalInsets),
+      bubbleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -layoutPreferences.horizontalInsets),
       bubbleView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -distanceFromBottom),
       
-      arrowView.widthAnchor.constraint(equalToConstant: preferences.arrowWidth),
-      arrowView.heightAnchor.constraint(equalToConstant: preferences.arrowHeight),
-      arrowView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor),
-      arrowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: centerPoint.x),
-      
       label.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor,
-                                     constant: preferences.contentHorizontalInsets),
+                                     constant: layoutPreferences.contentHorizontalInsets),
       label.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor,
-                                      constant: -preferences.contentHorizontalInsets),
+                                      constant: -layoutPreferences.contentHorizontalInsets),
       label.topAnchor.constraint(equalTo: bubbleView.topAnchor,
-                                 constant: preferences.verticalInsets),
+                                 constant: layoutPreferences.verticalInsets),
       label.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor,
-                                    constant: -preferences.verticalInsets)
-      ])
+                                    constant: -layoutPreferences.verticalInsets)
+      ]
+    
+    constraints.append(contentsOf: arrowConstraints)
+    
+    NSLayoutConstraint.activate(constraints)
   }
 }
