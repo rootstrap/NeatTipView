@@ -1,0 +1,9 @@
+use_frameworks!
+
+target 'NeatTipView_Example' do
+  pod 'NeatTipView', :path => '../'
+
+  target 'NeatTipView_Tests' do
+    inherit! :search_paths
+  end
+end

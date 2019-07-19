@@ -1,0 +1,6 @@
+framework module Pods_NeatTipView_Tests {
+  umbrella header "Pods-NeatTipView_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

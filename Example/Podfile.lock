@@ -1,0 +1,16 @@
+PODS:
+  - NeatTipView (0.1.0)
+
+DEPENDENCIES:
+  - NeatTipView (from `../`)
+
+EXTERNAL SOURCES:
+  NeatTipView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NeatTipView: 8095db90bd33ea13ad7c0d51fda428e88b3f50cd
+
+PODFILE CHECKSUM: 7896c3e107576f12b6c365708e391e5976da644d
+
+COCOAPODS: 1.6.2
