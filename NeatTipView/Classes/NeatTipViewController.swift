@@ -24,6 +24,8 @@ public struct Preferences {
   var arrowWidth: CGFloat = 15
   var arrowHeight: CGFloat = 10
   
+  var animationDuration: TimeInterval = 0.3
+  
   public init() { }
 }
 
@@ -74,6 +76,11 @@ public class NeatTipViewController: UIViewController {
     return arrow
   }()
   
+  var distanceFromBottom: CGFloat {
+    return view.bounds.height - centerPoint.y +
+      preferences.verticalInsets + preferences.arrowHeight
+  }
+  
   public init(centerPoint: CGPoint,
               attributedString: NSAttributedString,
               preferences: Preferences = Preferences(),
@@ -105,17 +112,42 @@ public class NeatTipViewController: UIViewController {
   }
   
   func configureViews() {
+    addSubviews()
+    label.attributedText = attributedString
+    activateConstraints()
+    addDismissGesture()
+  }
+  
+  func addDismissGesture() {
+    let tapGesture = UITapGestureRecognizer(target: self,
+                                            action: #selector(dismissTip))
+    view.addGestureRecognizer(tapGesture)
+  }
+  
+  @objc
+  func dismissTip() {
+    dismiss(animated: true)
+  }
+  
+  public override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    UIView.animate(withDuration: preferences.animationDuration,
+                   animations: { [weak self] in
+                    self?.backgroundView.alpha = 0
+                   },
+                   completion: { _ in
+                    super.dismiss(animated: true)
+                   })
+  }
+  func addSubviews() {
     view.backgroundColor = .clear
     view.addSubview(backgroundView)
     view.addSubview(bubbleView)
     bubbleView.addSubview(label)
     view.bringSubviewToFront(bubbleView)
     view.addSubview(arrowView)
-    
-    label.attributedText = attributedString
-    
-    let distanceFromBottom = view.bounds.height - centerPoint.y + preferences.verticalInsets + preferences.arrowHeight
-    
+  }
+  
+  func activateConstraints() {
     NSLayoutConstraint.activate([
       backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
