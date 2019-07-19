@@ -23,7 +23,12 @@ class NeatArrowView: UIView {
     }
   }
   
-  var arrowPosition: ArrowPosition = .bottom
+  var arrowPosition: ArrowPosition = .bottom {
+    didSet {
+      setNeedsLayout()
+      layoutIfNeeded()
+    }
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)

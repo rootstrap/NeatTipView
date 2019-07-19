@@ -71,6 +71,33 @@ public class NeatTipViewController: UIViewController {
     return arrow
   }()
   
+  lazy var bubbleConstraints: [NSLayoutConstraint] = {
+    var constraints = [
+      bubbleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: layoutPreferences.horizontalInsets),
+      bubbleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -layoutPreferences.horizontalInsets)
+    ]
+    
+    switch arrowPosition {
+    case .top:
+      constraints.append(bubbleTopArrowConstraint)
+    default:
+      constraints.append(bubbleBottomArrowConstraint)
+    }
+    
+    return constraints
+    
+  }()
+  
+  lazy var bubbleBottomArrowConstraint: NSLayoutConstraint = {
+    return bubbleView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                              constant: -bubbleDistanceFromBottom)
+  }()
+  
+  lazy var bubbleTopArrowConstraint: NSLayoutConstraint = {
+    return bubbleView.topAnchor.constraint(equalTo: view.topAnchor,
+                                           constant: bubbleDistanceFromTop)
+  }()
+  
   lazy var arrowConstraints: [NSLayoutConstraint] = {
     var constraints = [
       arrowView.widthAnchor.constraint(equalToConstant: layoutPreferences.arrowWidth),
@@ -79,6 +106,8 @@ public class NeatTipViewController: UIViewController {
     switch arrowPosition {
     case .bottom, .any:
       constraints.append(contentsOf: arrowBottomConstraints)
+    case .top:
+      constraints.append(contentsOf: arrowTopConstraints)
     default: break
     }
     
@@ -92,9 +121,23 @@ public class NeatTipViewController: UIViewController {
     ]
   }()
   
-  var distanceFromBottom: CGFloat {
+  lazy var arrowTopConstraints: [NSLayoutConstraint] = {
+    return [
+      arrowView.bottomAnchor.constraint(equalTo: bubbleView.topAnchor),
+      arrowView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                         constant: centerPoint.x)
+    ]
+  }()
+  
+  var bubbleDistanceFromBottom: CGFloat {
+    
     return view.bounds.height - centerPoint.y +
       layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
+  }
+  
+  var bubbleDistanceFromTop: CGFloat {
+    return centerPoint.y + layoutPreferences.arrowHeight +
+      layoutPreferences.verticalInsets
   }
   
   public init(centerPoint: CGPoint,
@@ -171,10 +214,6 @@ public class NeatTipViewController: UIViewController {
       backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
       backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       
-      bubbleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: layoutPreferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -layoutPreferences.horizontalInsets),
-      bubbleView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -distanceFromBottom),
-      
       label.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor,
                                      constant: layoutPreferences.contentHorizontalInsets),
       label.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor,
@@ -185,6 +224,7 @@ public class NeatTipViewController: UIViewController {
                                     constant: -layoutPreferences.verticalInsets)
       ]
     
+    constraints.append(contentsOf: bubbleConstraints)
     constraints.append(contentsOf: arrowConstraints)
     
     NSLayoutConstraint.activate(constraints)
