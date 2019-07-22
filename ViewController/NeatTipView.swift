@@ -1,5 +1,5 @@
 //
-//  TipViewController.swift
+//  NeatTipView.swift
 //  NeatTipView
 //
 //  Created by Germán Stábile on 7/17/19.
@@ -21,7 +21,7 @@ struct Constants {
   static let screenHeight = UIScreen.main.bounds.height
 }
 
-public class NeatTipViewController: UIViewController {
+public class NeatTipView: UIView {
   
   public var centerPoint: CGPoint
   public var arrowPosition: ArrowPosition
@@ -73,8 +73,8 @@ public class NeatTipViewController: UIViewController {
   
   lazy var bubbleConstraints: [NSLayoutConstraint] = {
     var constraints = [
-      bubbleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: layoutPreferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -layoutPreferences.horizontalInsets)
+      bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
+      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets)
     ]
     
     switch arrowPosition {
@@ -89,12 +89,12 @@ public class NeatTipViewController: UIViewController {
   }()
   
   lazy var bubbleBottomArrowConstraint: NSLayoutConstraint = {
-    return bubbleView.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+    return bubbleView.bottomAnchor.constraint(equalTo: bottomAnchor,
                                               constant: -bubbleDistanceFromBottom)
   }()
   
   lazy var bubbleTopArrowConstraint: NSLayoutConstraint = {
-    return bubbleView.topAnchor.constraint(equalTo: view.topAnchor,
+    return bubbleView.topAnchor.constraint(equalTo: topAnchor,
                                            constant: bubbleDistanceFromTop)
   }()
   
@@ -117,21 +117,20 @@ public class NeatTipViewController: UIViewController {
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = {
     return [
       arrowView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor),
-      arrowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: centerPoint.x)
+      arrowView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: centerPoint.x)
     ]
   }()
   
   lazy var arrowTopConstraints: [NSLayoutConstraint] = {
     return [
       arrowView.bottomAnchor.constraint(equalTo: bubbleView.topAnchor),
-      arrowView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+      arrowView.leadingAnchor.constraint(equalTo: leadingAnchor,
                                          constant: centerPoint.x)
     ]
   }()
   
   var bubbleDistanceFromBottom: CGFloat {
-    
-    return view.bounds.height - centerPoint.y +
+    return bounds.height - centerPoint.y +
       layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
   }
   
@@ -148,26 +147,37 @@ public class NeatTipViewController: UIViewController {
     self.attributedString = attributedString
     self.preferences = preferences
     self.arrowPosition = arrowPosition
-    super.init(nibName: nil, bundle: nil)
-    self.modalPresentationStyle = .overFullScreen
+    super.init(frame: CGRect.zero)
+    configureViews()
+  }
+  
+  public func show(in superview: UIView) {
+    translatesAutoresizingMaskIntoConstraints = false
+    superview.addSubview(self)
+    
+    NSLayoutConstraint.activate([
+      superview.topAnchor.constraint(equalTo: topAnchor),
+      superview.leadingAnchor.constraint(equalTo: leadingAnchor),
+      superview.trailingAnchor.constraint(equalTo: trailingAnchor),
+      superview.bottomAnchor.constraint(equalTo: bottomAnchor)
+      ])
+    
+    setNeedsLayout()
+    layoutIfNeeded()
+    //refreshing constraints that depend on the superview frame
+    bubbleBottomArrowConstraint.constant = -bubbleDistanceFromBottom
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
-  public override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+  public override func didMoveToSuperview() {
+    super.didMoveToSuperview()
     
     UIView.animate(withDuration: 0.3, animations: { [weak self] in
       self?.backgroundView.alpha = 1
     })
-  }
-  
-  public override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    configureViews()
   }
   
   func configureViews() {
@@ -180,39 +190,35 @@ public class NeatTipViewController: UIViewController {
   func addDismissGesture() {
     let tapGesture = UITapGestureRecognizer(target: self,
                                             action: #selector(dismissTip))
-    view.addGestureRecognizer(tapGesture)
+    addGestureRecognizer(tapGesture)
   }
   
   @objc
   func dismissTip() {
-    dismiss(animated: true)
-  }
-  
-  public override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
                     self?.backgroundView.alpha = 0
                    },
-                   completion: { _ in
-                    super.dismiss(animated: true)
+                   completion: { [weak self] _ in
+                    self?.removeFromSuperview()
                    })
   }
   
   func addSubviews() {
-    view.backgroundColor = .clear
-    view.addSubview(backgroundView)
-    view.addSubview(bubbleView)
+    backgroundColor = .clear
+    addSubview(backgroundView)
+    addSubview(bubbleView)
     bubbleView.addSubview(label)
-    view.bringSubviewToFront(bubbleView)
-    view.addSubview(arrowView)
+    bringSubviewToFront(bubbleView)
+    addSubview(arrowView)
   }
   
   func activateConstraints() {
     var constraints = [
-      backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-      backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+      backgroundView.topAnchor.constraint(equalTo: topAnchor),
+      backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
       
       label.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor,
                                      constant: layoutPreferences.contentHorizontalInsets),

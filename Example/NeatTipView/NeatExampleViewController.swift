@@ -12,9 +12,10 @@ import UIKit
 class NeatExampleViewController: UIViewController {
   
   @IBAction func infoButtonTapped(sender: UIButton) {
-    let tipVC = NeatTipViewController(centerPoint: sender.center,
-                                      attributedString: attributedString())
-    present(tipVC, animated: true)
+    let tipView = NeatTipView(centerPoint: sender.center,
+                              attributedString: attributedString(),
+                              arrowPosition: .top)
+    tipView.show(in: view)
   }
   
   func attributedString() -> NSAttributedString {
