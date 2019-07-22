@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C31F922E22EDC001D2067 /* NeatArrowView.swift */; };
+		075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C320222E25300001D2067 /* NeatViewPreferences.swift */; };
 		2AAFA3AC36156251C039445A43450ABD /* NeatTipView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FD6FCE09708E6ABFF4B19C8470FFB0 /* NeatTipView-dummy.m */; };
 		409869D70A9F18CF2F3ACC1E7688D06F /* Pods-NeatTipView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB8D3A2399FF309F404C32BF7B40C657 /* Pods-NeatTipView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BAD4962A353E2A5186E35782236FDD9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -41,6 +42,7 @@
 		04C4D29CC82BE63F307778AF5095C19F /* Pods-NeatTipView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		05E9EE951C0A4AA7C587B67818065762 /* NeatTipView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NeatTipView.modulemap; sourceTree = "<group>"; };
 		075C31F922E22EDC001D2067 /* NeatArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatArrowView.swift; sourceTree = "<group>"; };
+		075C320222E25300001D2067 /* NeatViewPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatViewPreferences.swift; sourceTree = "<group>"; };
 		0C08DE34882B7727A24860C733F1714C /* Pods-NeatTipView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1BF0BC9BA9BD845E807ED50EC520A7A0 /* Pods-NeatTipView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Example-dummy.m"; sourceTree = "<group>"; };
 		2816E3F58A149E2FEA978C151CD9485F /* NeatTipView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NeatTipView.xcconfig; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		9FA2762F8B12C0E58A2CDF45F48F68F6 /* Pods-NeatTipView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Tests-dummy.m"; sourceTree = "<group>"; };
 		A5892E0FCA05FECE4964D7A11E794CFC /* Pods-NeatTipView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeatTipView_Tests.modulemap"; sourceTree = "<group>"; };
 		BAE8A3D83F0C7775BFA12E1F97F8C8F5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		BE999E5032707A9895359AF50C9FD923 /* NeatTipViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NeatTipViewController.swift; path = NeatTipView/Classes/NeatTipViewController.swift; sourceTree = "<group>"; };
+		BE999E5032707A9895359AF50C9FD923 /* NeatTipViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatTipViewController.swift; sourceTree = "<group>"; };
 		CB8D3A2399FF309F404C32BF7B40C657 /* Pods-NeatTipView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Example-umbrella.h"; sourceTree = "<group>"; };
 		CE18417385AEB107E9FED166788FEC41 /* Pods-NeatTipView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		D7FB459761D3455287F2648D27039156 /* Pods-NeatTipView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeatTipView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -118,6 +120,30 @@
 				F662097325D39CADB1B228831ED60AB8 /* README.md */,
 			);
 			name = Pod;
+			sourceTree = "<group>";
+		};
+		075C31FF22E25240001D2067 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE999E5032707A9895359AF50C9FD923 /* NeatTipViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		075C320022E252D9001D2067 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				075C320222E25300001D2067 /* NeatViewPreferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		075C320122E252E3001D2067 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				075C31F922E22EDC001D2067 /* NeatArrowView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		6C155B912A4333CD9BEA83A24E30F332 /* Pods-NeatTipView_Tests */ = {
@@ -215,10 +241,11 @@
 		F68993584B767D9330930F81B90E7D64 /* NeatTipView */ = {
 			isa = PBXGroup;
 			children = (
-				BE999E5032707A9895359AF50C9FD923 /* NeatTipViewController.swift */,
+				075C320122E252E3001D2067 /* View */,
+				075C320022E252D9001D2067 /* Preferences */,
+				075C31FF22E25240001D2067 /* ViewController */,
 				041B5DD398EDAF25DB660B56161FCDC8 /* Pod */,
 				78F0AE195460962EA28E3F74CD13ADB8 /* Support Files */,
-				075C31F922E22EDC001D2067 /* NeatArrowView.swift */,
 			);
 			name = NeatTipView;
 			path = ../..;
@@ -389,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */,
+				075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */,
 				2AAFA3AC36156251C039445A43450ABD /* NeatTipView-dummy.m in Sources */,
 				A5DE66FE88D48F60487C7C44F48805B2 /* NeatTipViewController.swift in Sources */,
 			);
