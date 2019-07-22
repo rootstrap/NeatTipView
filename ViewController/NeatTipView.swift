@@ -71,21 +71,56 @@ public class NeatTipView: UIView {
     return arrow
   }()
   
-  lazy var bubbleConstraints: [NSLayoutConstraint] = {
+  lazy var finalBubbleConstraints: [NSLayoutConstraint] = {
     var constraints = [
       bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
       bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets)
     ]
     
-    switch arrowPosition {
-    case .top:
-      constraints.append(bubbleTopArrowConstraint)
-    default:
-      constraints.append(bubbleBottomArrowConstraint)
-    }
+    constraints.append(bubbleVerticalConstraint)
     
     return constraints
-    
+  }()
+  
+  lazy var bubbleVerticalConstraint: NSLayoutConstraint = {
+    switch arrowPosition {
+    case .top:
+      return bubbleTopArrowConstraint
+    default:
+      return bubbleBottomArrowConstraint
+    }
+  }()
+  
+  lazy var initialBubbleConstraints: [NSLayoutConstraint] = {
+  
+    switch animationPreferences.appearanceAnimationType {
+    case .fromBottom:
+      return [
+        bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
+        bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets),
+        bubbleView.topAnchor.constraint(equalTo: bottomAnchor)
+        ]
+    case .fromTop:
+      return [
+        bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
+        bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets),
+        bubbleView.bottomAnchor.constraint(equalTo: topAnchor)
+        ]
+    case .fromLeft:
+      return [
+       bubbleVerticalConstraint,
+       bubbleView.trailingAnchor.constraint(equalTo: leadingAnchor),
+       bubbleView.widthAnchor.constraint(equalToConstant: Constants.screenWidth - layoutPreferences.horizontalInsets * 2)
+      ]
+    case .fromRight:
+      return [
+        bubbleVerticalConstraint,
+        bubbleView.leadingAnchor.constraint(equalTo: trailingAnchor),
+        bubbleView.widthAnchor.constraint(equalToConstant: Constants.screenWidth - layoutPreferences.horizontalInsets * 2)
+      ]
+    default:
+      return []
+    }
   }()
   
   lazy var bubbleBottomArrowConstraint: NSLayoutConstraint = {
@@ -98,16 +133,34 @@ public class NeatTipView: UIView {
                                            constant: bubbleDistanceFromTop)
   }()
   
-  lazy var arrowConstraints: [NSLayoutConstraint] = {
-    var constraints = [
+  lazy var sizeArrowConstraints: [NSLayoutConstraint] = {
+    return [
       arrowView.widthAnchor.constraint(equalToConstant: layoutPreferences.arrowWidth),
       arrowView.heightAnchor.constraint(equalToConstant: layoutPreferences.arrowHeight)
     ]
+  }()
+  
+  lazy var finalArrowConstraints: [NSLayoutConstraint] = {
+    var constraints = sizeArrowConstraints
     switch arrowPosition {
     case .bottom, .any:
       constraints.append(contentsOf: arrowBottomConstraints)
     case .top:
       constraints.append(contentsOf: arrowTopConstraints)
+    default: break
+    }
+    
+    return constraints
+  }()
+  
+  lazy var initialArrowConstraints: [NSLayoutConstraint] = {
+    var constraints = sizeArrowConstraints
+    constraints.append(arrowView.centerXAnchor.constraint(equalTo: bubbleView.centerXAnchor))
+    switch arrowPosition {
+    case .bottom, .any:
+      constraints.append(arrowView.topAnchor.constraint(equalTo: bubbleView.bottomAnchor))
+    case .top:
+      constraints.append(arrowView.bottomAnchor.constraint(equalTo: bubbleView.topAnchor))
     default: break
     }
     
@@ -130,7 +183,9 @@ public class NeatTipView: UIView {
   }()
   
   var bubbleDistanceFromBottom: CGFloat {
-    return bounds.height - centerPoint.y +
+    //for initial constraints the bound is zero for smoother animations assume the superview is as big as the screen
+    let viewHeight = bounds.height == 0 ? Constants.screenHeight : bounds.height
+    return viewHeight - centerPoint.y +
       layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
   }
   
@@ -166,6 +221,16 @@ public class NeatTipView: UIView {
     layoutIfNeeded()
     //refreshing constraints that depend on the superview frame
     bubbleBottomArrowConstraint.constant = -bubbleDistanceFromBottom
+    
+    //animating views on appearance
+    NSLayoutConstraint.deactivate(initialArrowConstraints)
+    NSLayoutConstraint.deactivate(initialBubbleConstraints)
+    NSLayoutConstraint.activate(finalBubbleConstraints)
+    NSLayoutConstraint.activate(finalArrowConstraints)
+    UIView.animate(withDuration: animationPreferences.animationDuration,
+                   animations: { [weak self] in
+                    self?.layoutIfNeeded()
+                   })
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -230,8 +295,8 @@ public class NeatTipView: UIView {
                                     constant: -layoutPreferences.verticalInsets)
       ]
     
-    constraints.append(contentsOf: bubbleConstraints)
-    constraints.append(contentsOf: arrowConstraints)
+    constraints.append(contentsOf: initialBubbleConstraints)
+    constraints.append(contentsOf: initialArrowConstraints)
     
     NSLayoutConstraint.activate(constraints)
   }
