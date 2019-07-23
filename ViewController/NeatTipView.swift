@@ -144,12 +144,28 @@ public class NeatTipView: UIView {
     //animating views on appearance
     NSLayoutConstraint.deactivate(initialArrowConstraints)
     NSLayoutConstraint.deactivate(initialBubbleConstraints)
-    NSLayoutConstraint.activate(finalBubbleConstraints)
+    let bounceConstraints = createFinalBubbleConstraints(offset: CGPoint(x: 50, y: 50))
+    NSLayoutConstraint.activate(bounceConstraints)
     NSLayoutConstraint.activate(finalArrowConstraints)
-    UIView.animate(withDuration: animationPreferences.animationDuration,
-                   animations: { [weak self] in
-                    self?.layoutIfNeeded()
-                   })
+    
+    UIView.animateKeyframes(withDuration: animationPreferences.animationDuration,
+                            delay: 0,
+                            options: .calculationModeLinear,
+                            animations: { [weak self] in
+                              guard let self = self else { return }
+                              UIView.addKeyframe(withRelativeStartTime: 0,
+                                                 relativeDuration: 0.8,
+                                                 animations: {
+                                                  self.layoutIfNeeded()
+                                                 })
+                              UIView.addKeyframe(withRelativeStartTime: 0.8,
+                                                 relativeDuration: 0.2,
+                                                 animations: {
+                                                  NSLayoutConstraint.deactivate(bounceConstraints)
+                                                  NSLayoutConstraint.activate(self.finalBubbleConstraints)
+                                                  self.layoutIfNeeded()
+                                                 })
+                            })
   }
   
   //MARK: View lifecycle

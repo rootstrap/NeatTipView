@@ -42,7 +42,7 @@ public struct NeatLayoutPreferences {
 }
 
 public struct NeatAnimationPreferences {
-  public var animationDuration: TimeInterval = 0.3
+  public var animationDuration: TimeInterval = 0.5
   public var appearanceAnimationType: AppearanceAnimationType = .fromBottom
   public var disappearanceAnimationType: DisappearanceAnimationType = .toBottom
   

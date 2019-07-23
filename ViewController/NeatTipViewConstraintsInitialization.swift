@@ -42,13 +42,20 @@ extension NeatTipView {
     }
   }
   
-  func createFinalBubbleConstraints() -> [NSLayoutConstraint] {
+  func createFinalBubbleConstraints(offset: CGPoint = .zero) -> [NSLayoutConstraint] {
+    let animationType = animationPreferences.appearanceAnimationType
+    let isVerticalAnimation = animationType == .fromTop || animationType == .fromBottom
+    var xOffset = isVerticalAnimation ? 0 : offset.x
+    xOffset = animationType == .fromLeft ? xOffset : -xOffset
     var constraints = [
-      bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets)
+      bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets + xOffset),
+      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets + xOffset)
     ]
     
-    constraints.append(bubbleVerticalConstraint)
+    let verticalConstraint = arrowPosition == .top ? createBubbleTopArrowConstraint() : createBubbleBottomArrowConstraint()
+    let yOffset = isVerticalAnimation ? offset.y : 0
+    verticalConstraint.constant += animationType == .fromTop ? yOffset : -yOffset
+    constraints.append(verticalConstraint)
     
     return constraints
   }
