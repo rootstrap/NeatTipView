@@ -11,10 +11,37 @@ import UIKit
 
 class NeatExampleViewController: UIViewController {
   
-  @IBAction func infoButtonTapped(sender: UIButton) {
-    let tipView = NeatTipView(centerPoint: sender.center,
+  @IBAction func fromLeftButtonTapped(sender: UIButton) {
+    var preferences = NeatViewPreferences()
+    preferences.animationPreferences.appearanceAnimationType = .fromLeft
+    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+  }
+  
+  @IBAction func fromRightButtonTapped(sender: UIButton) {
+    var preferences = NeatViewPreferences()
+    preferences.animationPreferences.appearanceAnimationType = .fromRight
+    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+  }
+  
+  @IBAction func fromBottomBottomTapped(sender: UIButton) {
+    var preferences = NeatViewPreferences()
+    preferences.animationPreferences.appearanceAnimationType = .fromBottom
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+  }
+  
+  @IBAction func fromTopButtonTapped(sender: UIButton) {
+    var preferences = NeatViewPreferences()
+    preferences.animationPreferences.appearanceAnimationType = .fromTop
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+  }
+  
+  func showTipView(with preferences: NeatViewPreferences,
+                   center: CGPoint,
+                   arrowPosition: ArrowPosition) {
+    let tipView = NeatTipView(centerPoint: center,
                               attributedString: attributedString(),
-                              arrowPosition: .top)
+                              preferences: preferences,
+                              arrowPosition: arrowPosition)
     tipView.show(in: view)
   }
   

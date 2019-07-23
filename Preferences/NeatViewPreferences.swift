@@ -8,8 +8,8 @@
 import Foundation
 
 public struct NeatViewPreferences {
-  var layoutPreferences = NeatLayoutPreferences()
-  var animationPreferences = NeatAnimationPreferences()
+  public var layoutPreferences = NeatLayoutPreferences()
+  public var animationPreferences = NeatAnimationPreferences()
   
   public init() { }
 }
@@ -31,20 +31,20 @@ public enum DisappearanceAnimationType {
 }
 
 public struct NeatLayoutPreferences {
-  var horizontalInsets: CGFloat = 20
-  var verticalInsets: CGFloat = 20
-  var contentHorizontalInsets: CGFloat = 10
-  var contentVerticalInsets: CGFloat = 10
-  var arrowWidth: CGFloat = 15
-  var arrowHeight: CGFloat = 10
+  public var horizontalInsets: CGFloat = 20
+  public var verticalInsets: CGFloat = 20
+  public var contentHorizontalInsets: CGFloat = 10
+  public var contentVerticalInsets: CGFloat = 10
+  public var arrowWidth: CGFloat = 15
+  public var arrowHeight: CGFloat = 10
   
   public init() { }
 }
 
 public struct NeatAnimationPreferences {
-  var animationDuration: TimeInterval = 0.3
-  var appearanceAnimationType: AppearanceAnimationType = .fromBottom
-  var disappearanceAnimationType: DisappearanceAnimationType = .toBottom
+  public var animationDuration: TimeInterval = 0.3
+  public var appearanceAnimationType: AppearanceAnimationType = .fromBottom
+  public var disappearanceAnimationType: DisappearanceAnimationType = .toBottom
   
   public init() { }
 }
