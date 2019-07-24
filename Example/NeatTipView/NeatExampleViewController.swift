@@ -25,7 +25,7 @@ class NeatExampleViewController: UIViewController {
     showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
   }
   
-  @IBAction func fromBottomBottomTapped(sender: UIButton) {
+  @IBAction func fromBottomButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromBottom
     preferences.animationPreferences.disappearanceAnimationType = .toBottom
