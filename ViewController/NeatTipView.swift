@@ -14,6 +14,10 @@ public enum ArrowPosition {
   case left
   case right
   case any
+  
+  var isVerticalArrow: Bool {
+    return self == .top || self == .bottom
+  }
 }
 
 struct Constants {
@@ -80,7 +84,7 @@ public class NeatTipView: UIView {
   
   lazy var dismissedBubbleConstraints: [NSLayoutConstraint] = createDismissedBubbleConstraints()
   
-  lazy var bubbleVerticalConstraint: NSLayoutConstraint = createBubbleVerticalConstraint()
+  lazy var bubbleToArrowConstraint: NSLayoutConstraint = createBubbleToArrowConstraint()
   
   lazy var initialBubbleConstraints: [NSLayoutConstraint] = createInitialBubbleConstraints()
   
@@ -98,6 +102,8 @@ public class NeatTipView: UIView {
   
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = createArrowBottomConstraints()
   
+  lazy var arrowLeftConstraints: [NSLayoutConstraint] = createArrowLeftConstraints()
+  
   lazy var arrowTopConstraints: [NSLayoutConstraint] = createArrowTopConstraints()
   
   var bubbleDistanceFromBottom: CGFloat {
@@ -110,6 +116,10 @@ public class NeatTipView: UIView {
   var bubbleDistanceFromTop: CGFloat {
     return centerPoint.y + layoutPreferences.arrowHeight +
       layoutPreferences.verticalInsets
+  }
+  
+  var arrowDistanceFromLeft: CGFloat {
+    return centerPoint.x + layoutPreferences.horizontalInsets
   }
   
   //MARK: APIs

@@ -10,7 +10,6 @@ import UIKit
 extension NeatTipView {
   
   //MARK: Bubble constraints
-  
   func createInitialBubbleConstraints() -> [NSLayoutConstraint] {
     switch animationPreferences.appearanceAnimationType {
     case .fromBottom:
@@ -27,13 +26,13 @@ extension NeatTipView {
       ]
     case .fromLeft:
       return [
-        bubbleVerticalConstraint,
+        bubbleToArrowConstraint,
         bubbleView.trailingAnchor.constraint(equalTo: leadingAnchor),
         bubbleView.widthAnchor.constraint(equalToConstant: Constants.screenWidth - layoutPreferences.horizontalInsets * 2)
       ]
     case .fromRight:
       return [
-        bubbleVerticalConstraint,
+        bubbleToArrowConstraint,
         bubbleView.leadingAnchor.constraint(equalTo: trailingAnchor),
         bubbleView.widthAnchor.constraint(equalToConstant: Constants.screenWidth - layoutPreferences.horizontalInsets * 2)
       ]
@@ -43,6 +42,12 @@ extension NeatTipView {
   }
   
   func createFinalBubbleConstraints() -> [NSLayoutConstraint] {
+    return arrowPosition.isVerticalArrow ?
+      createFinalVerticalBubbleConstraints() :
+      createFinalHorizontalBubbleConstraints()
+  }
+  
+  func createFinalVerticalBubbleConstraints() -> [NSLayoutConstraint] {
     let centerConstraint = bubbleView.centerXAnchor.constraint(equalTo: arrowView.centerXAnchor)
     centerConstraint.priority = .defaultLow
     var constraints = [
@@ -55,7 +60,27 @@ extension NeatTipView {
       centerConstraint
     ]
     
-    constraints.append(bubbleVerticalConstraint)
+    constraints.append(bubbleToArrowConstraint)
+    
+    return constraints
+  }
+  
+  func createFinalHorizontalBubbleConstraints() -> [NSLayoutConstraint] {
+    let centerConstraint = bubbleView.centerYAnchor.constraint(equalTo: arrowView.centerYAnchor)
+    centerConstraint.priority = .defaultLow
+    let constraints = [
+      bubbleView.topAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.topAnchor,
+                                      constant: layoutPreferences.verticalInsets),
+      bubbleView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor,
+                                         constant: -layoutPreferences.verticalInsets),
+      bubbleView.bottomAnchor.constraint(greaterThanOrEqualTo: arrowView.bottomAnchor,
+                                         constant: bubbleView.layer.cornerRadius),
+      bubbleView.topAnchor.constraint(lessThanOrEqualTo: arrowView.topAnchor,
+                                      constant: -bubbleView.layer.cornerRadius),
+      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                           constant: -layoutPreferences.horizontalInsets),
+      centerConstraint
+    ]
     
     return constraints
   }
@@ -75,13 +100,13 @@ extension NeatTipView {
       constraints.append(bubbleView.bottomAnchor.constraint(equalTo: topAnchor))
     case .toRight:
       constraints = [
-        bubbleVerticalConstraint,
+        bubbleToArrowConstraint,
         bubbleView.leadingAnchor.constraint(equalTo: trailingAnchor),
         bubbleView.widthAnchor.constraint(equalToConstant: bounds.width - layoutPreferences.horizontalInsets * 2)
       ]
     case .toLeft:
       constraints = [
-        bubbleVerticalConstraint,
+        bubbleToArrowConstraint,
         bubbleView.trailingAnchor.constraint(equalTo: leadingAnchor),
         bubbleView.widthAnchor.constraint(equalToConstant: bounds.width - layoutPreferences.horizontalInsets * 2)
       ]
@@ -91,7 +116,7 @@ extension NeatTipView {
     return constraints
   }
   
-  func createBubbleVerticalConstraint() -> NSLayoutConstraint {
+  func createBubbleToArrowConstraint() -> NSLayoutConstraint {
     switch arrowPosition {
     case .top:
       return bubbleTopArrowConstraint
@@ -151,10 +176,20 @@ extension NeatTipView {
       constraints.append(contentsOf: arrowBottomConstraints)
     case .top:
       constraints.append(contentsOf: arrowTopConstraints)
+    case .left:
+      constraints.append(contentsOf: arrowLeftConstraints)
     default: break
     }
     
     return constraints
+  }
+  
+  func createArrowLeftConstraints() -> [NSLayoutConstraint] {
+    return [
+      arrowView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: arrowDistanceFromLeft),
+      arrowView.trailingAnchor.constraint(equalTo: bubbleView.leadingAnchor),
+      arrowView.topAnchor.constraint(equalTo: topAnchor, constant: centerPoint.y - layoutPreferences.arrowWidth / 2)
+    ]
   }
   
   func createArrowBottomConstraints() -> [NSLayoutConstraint] {
