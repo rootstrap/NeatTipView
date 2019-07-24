@@ -23,6 +23,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmg-DT-ERb">
                                 <rect key="frame" x="158" y="137" width="59" height="30"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="from left"/>
                                 <connections>
                                     <action selector="fromLeftButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BVs-nJ-Uls"/>
@@ -46,7 +47,7 @@
                                 <rect key="frame" x="144.5" y="449" width="86" height="30"/>
                                 <state key="normal" title="from bottom"/>
                                 <connections>
-                                    <action selector="fromBottomBottomTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="s0h-tz-szr"/>
+                                    <action selector="fromBottomButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="RCb-zh-0Yb"/>
                                 </connections>
                             </button>
                         </subviews>
