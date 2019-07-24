@@ -104,6 +104,8 @@ public class NeatTipView: UIView {
   
   lazy var arrowLeftConstraints: [NSLayoutConstraint] = createArrowLeftConstraints()
   
+  lazy var arrowRightConstraints: [NSLayoutConstraint] = createArrowRightConstraints()
+  
   lazy var arrowTopConstraints: [NSLayoutConstraint] = createArrowTopConstraints()
   
   var bubbleDistanceFromBottom: CGFloat {
@@ -119,7 +121,11 @@ public class NeatTipView: UIView {
   }
   
   var arrowDistanceFromLeft: CGFloat {
-    return centerPoint.x + layoutPreferences.horizontalInsets
+    return centerPoint.x + layoutPreferences.horizontalInsets - layoutPreferences.arrowHeight
+  }
+  
+  var arrowDistanceFromRight: CGFloat {
+    return tipSuperview.bounds.width - centerPoint.x + layoutPreferences.horizontalInsets
   }
   
   //MARK: APIs

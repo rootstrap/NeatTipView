@@ -96,14 +96,14 @@ class NeatArrowView: UIView {
   }
   
   var leftDrawingPoints: [CGPoint] {
-    return [CGPoint(x: bounds.width / 2, y: bounds.height / 2),
+    return [CGPoint(x: 0, y: bounds.height / 2),
             CGPoint(x: bounds.width, y: 0),
             CGPoint(x: bounds.width, y: bounds.height)]
   }
   
   var rightDrawingPoints: [CGPoint] {
-    return [CGPoint(x: 0, y: bounds.height),
-            CGPoint(x: 0, y: 0),
-            CGPoint(x: bounds.width, y: bounds.height / 2)]
+    return [CGPoint(x: 0, y: 0),
+            CGPoint(x: bounds.width, y: bounds.height / 2),
+            CGPoint(x: 0, y: bounds.height)]
   }
 }
