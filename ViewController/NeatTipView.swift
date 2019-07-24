@@ -77,6 +77,8 @@ public class NeatTipView: UIView {
   
   lazy var finalBubbleConstraints: [NSLayoutConstraint] = createFinalBubbleConstraints()
   
+  lazy var dismissedBubbleConstraints: [NSLayoutConstraint] = createDismissedBubbleConstraints()
+  
   lazy var bubbleVerticalConstraint: NSLayoutConstraint = createBubbleVerticalConstraint()
   
   lazy var initialBubbleConstraints: [NSLayoutConstraint] = createInitialBubbleConstraints()
@@ -90,6 +92,8 @@ public class NeatTipView: UIView {
   lazy var finalArrowConstraints: [NSLayoutConstraint] = createFinalArrowConstraints()
   
   lazy var initialArrowConstraints: [NSLayoutConstraint] = createInitialArrowConstraints()
+  
+  lazy var dismissedArrowConstraints: [NSLayoutConstraint] = createDismissedArrowConstraints()
   
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = createArrowBottomConstraints()
   
@@ -179,8 +183,14 @@ public class NeatTipView: UIView {
   
   @objc
   func dismissTip() {
+    NSLayoutConstraint.deactivate(finalBubbleConstraints)
+    NSLayoutConstraint.deactivate(finalArrowConstraints)
+    NSLayoutConstraint.activate(dismissedBubbleConstraints)
+    NSLayoutConstraint.activate(dismissedArrowConstraints)
+    
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
+                    self?.layoutIfNeeded()
                     self?.backgroundView.alpha = 0
                    },
                    completion: { [weak self] _ in

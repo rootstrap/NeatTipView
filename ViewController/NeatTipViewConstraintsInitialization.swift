@@ -53,6 +53,37 @@ extension NeatTipView {
     return constraints
   }
   
+  func createDismissedBubbleConstraints() -> [NSLayoutConstraint] {
+    let horizontalConstraintsForVerticalAnimation = [
+      bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
+      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets)
+    ]
+    var constraints: [NSLayoutConstraint] = []
+    switch animationPreferences.disappearanceAnimationType {
+    case .toBottom:
+      constraints.append(contentsOf: horizontalConstraintsForVerticalAnimation)
+      constraints.append(bubbleView.topAnchor.constraint(equalTo: bottomAnchor))
+    case .toTop:
+      constraints.append(contentsOf: horizontalConstraintsForVerticalAnimation)
+      constraints.append(bubbleView.bottomAnchor.constraint(equalTo: topAnchor))
+    case .toRight:
+      constraints = [
+        bubbleVerticalConstraint,
+        bubbleView.leadingAnchor.constraint(equalTo: trailingAnchor),
+        bubbleView.widthAnchor.constraint(equalToConstant: bounds.width - layoutPreferences.horizontalInsets * 2)
+      ]
+    case .toLeft:
+      constraints = [
+        bubbleVerticalConstraint,
+        bubbleView.trailingAnchor.constraint(equalTo: leadingAnchor),
+        bubbleView.widthAnchor.constraint(equalToConstant: bounds.width - layoutPreferences.horizontalInsets * 2)
+      ]
+    default: break
+    }
+    
+    return constraints
+  }
+  
   func createBubbleVerticalConstraint() -> NSLayoutConstraint {
     switch arrowPosition {
     case .top:
@@ -93,6 +124,15 @@ extension NeatTipView {
     }
     
     return constraints
+  }
+  
+  func createDismissedArrowConstraints() -> [NSLayoutConstraint] {
+    switch animationPreferences.disappearanceAnimationType {
+    case .toRight, .toLeft:
+      return initialArrowConstraints
+    default:
+      return finalArrowConstraints
+    }
   }
   
   func createFinalArrowConstraints() -> [NSLayoutConstraint] {
