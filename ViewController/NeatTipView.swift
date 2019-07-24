@@ -27,6 +27,7 @@ public class NeatTipView: UIView {
   public var arrowPosition: ArrowPosition
   public var preferences: NeatViewPreferences
   public var attributedString: NSAttributedString
+  var tipSuperview: UIView
   
   var layoutPreferences: NeatLayoutPreferences {
     return preferences.layoutPreferences
@@ -113,7 +114,8 @@ public class NeatTipView: UIView {
   
   //MARK: APIs
   
-  public init(centerPoint: CGPoint,
+  public init(superview: UIView,
+              centerPoint: CGPoint,
               attributedString: NSAttributedString,
               preferences: NeatViewPreferences = NeatViewPreferences(),
               arrowPosition: ArrowPosition = .any) {
@@ -121,23 +123,29 @@ public class NeatTipView: UIView {
     self.attributedString = attributedString
     self.preferences = preferences
     self.arrowPosition = arrowPosition
+    tipSuperview = superview
     super.init(frame: CGRect.zero)
+    if !tipFits(in: superview, for: arrowPosition),
+      let preferredArrowPosition = whereDoesItFit(in: superview) {
+      self.arrowPosition = preferredArrowPosition
+    }
     configureViews()
   }
   
-  public func show(in superview: UIView) {
+  public func show() {
     translatesAutoresizingMaskIntoConstraints = false
-    superview.addSubview(self)
+    tipSuperview.addSubview(self)
     
     NSLayoutConstraint.activate([
-      superview.topAnchor.constraint(equalTo: topAnchor),
-      superview.leadingAnchor.constraint(equalTo: leadingAnchor),
-      superview.trailingAnchor.constraint(equalTo: trailingAnchor),
-      superview.bottomAnchor.constraint(equalTo: bottomAnchor)
+      tipSuperview.topAnchor.constraint(equalTo: topAnchor),
+      tipSuperview.leadingAnchor.constraint(equalTo: leadingAnchor),
+      tipSuperview.trailingAnchor.constraint(equalTo: trailingAnchor),
+      tipSuperview.bottomAnchor.constraint(equalTo: bottomAnchor)
       ])
     
     setNeedsLayout()
     layoutIfNeeded()
+    
     //refreshing constraints that depend on the superview frame
     bubbleBottomArrowConstraint.constant = -bubbleDistanceFromBottom
     
@@ -205,6 +213,41 @@ public class NeatTipView: UIView {
     bubbleView.addSubview(label)
     bringSubviewToFront(bubbleView)
     addSubview(arrowView)
+  }
+  
+  fileprivate func tipFits(in superview: UIView, for arrowPosition: ArrowPosition) -> Bool {
+    var availableHeight: CGFloat = 0
+    var availableWidth: CGFloat = 0
+    let verticalAvailableWidth = superview.bounds.width -
+      (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2
+    
+    switch arrowPosition {
+    case .bottom:
+      availableWidth = verticalAvailableWidth
+      availableHeight = centerPoint.y - superview.safeAreaInsets.top -
+        (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
+        layoutPreferences.arrowHeight
+    default:
+      availableWidth = verticalAvailableWidth
+      availableHeight = superview.bounds.height - superview.safeAreaInsets.bottom - centerPoint.y -
+        (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
+        layoutPreferences.arrowHeight
+    }
+    
+    let size = attributedString.size(with: CGSize(width: availableWidth,
+                                                  height: CGFloat.greatestFiniteMagnitude))
+    
+    return size.height < availableHeight
+  }
+  
+  fileprivate func whereDoesItFit(in superview: UIView) -> ArrowPosition? {
+    for arrowPosition in [ArrowPosition.top, ArrowPosition.bottom] {
+      if tipFits(in: superview, for: arrowPosition) {
+        return arrowPosition
+      }
+    }
+    
+    return nil
   }
   
   fileprivate func activateConstraints() {

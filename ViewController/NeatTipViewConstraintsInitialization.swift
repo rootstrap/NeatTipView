@@ -43,9 +43,16 @@ extension NeatTipView {
   }
   
   func createFinalBubbleConstraints() -> [NSLayoutConstraint] {
+    let centerConstraint = bubbleView.centerXAnchor.constraint(equalTo: arrowView.centerXAnchor)
+    centerConstraint.priority = .defaultLow
     var constraints = [
-      bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: layoutPreferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -layoutPreferences.horizontalInsets)
+      bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor,
+                                          constant: layoutPreferences.horizontalInsets),
+      bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor,
+                                           constant: -layoutPreferences.horizontalInsets),
+      bubbleView.leadingAnchor.constraint(lessThanOrEqualTo: arrowView.leadingAnchor, constant: -bubbleView.layer.cornerRadius),
+      bubbleView.trailingAnchor.constraint(greaterThanOrEqualTo: arrowView.trailingAnchor, constant: bubbleView.layer.cornerRadius),
+      centerConstraint
     ]
     
     constraints.append(bubbleVerticalConstraint)
@@ -106,8 +113,10 @@ extension NeatTipView {
   }
   
   func createSizeArrowConstraints() -> [NSLayoutConstraint] {
+    let widthConstraint = arrowView.widthAnchor.constraint(equalToConstant: layoutPreferences.arrowWidth)
+    widthConstraint.priority = .defaultHigh
     return [
-      arrowView.widthAnchor.constraint(equalToConstant: layoutPreferences.arrowWidth),
+      widthConstraint,
       arrowView.heightAnchor.constraint(equalToConstant: layoutPreferences.arrowHeight)
     ]
   }

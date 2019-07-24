@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073EBE4B22E8D2640027CC8F /* AttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */; };
 		075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C31F922E22EDC001D2067 /* NeatArrowView.swift */; };
 		075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C320222E25300001D2067 /* NeatViewPreferences.swift */; };
 		078642E922E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078642E822E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		04C4D29CC82BE63F307778AF5095C19F /* Pods-NeatTipView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		05E9EE951C0A4AA7C587B67818065762 /* NeatTipView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NeatTipView.modulemap; sourceTree = "<group>"; };
+		073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtension.swift; sourceTree = "<group>"; };
 		075C31F922E22EDC001D2067 /* NeatArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatArrowView.swift; sourceTree = "<group>"; };
 		075C320222E25300001D2067 /* NeatViewPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatViewPreferences.swift; sourceTree = "<group>"; };
 		078642E822E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatTipViewConstraintsInitialization.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		07A191C922E8D223008C000C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6C155B912A4333CD9BEA83A24E30F332 /* Pods-NeatTipView_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +254,7 @@
 		F68993584B767D9330930F81B90E7D64 /* NeatTipView */ = {
 			isa = PBXGroup;
 			children = (
+				07A191C922E8D223008C000C /* Extensions */,
 				075C320122E252E3001D2067 /* View */,
 				075C320022E252D9001D2067 /* Preferences */,
 				075C31FF22E25240001D2067 /* ViewController */,
@@ -418,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073EBE4B22E8D2640027CC8F /* AttributedStringExtension.swift in Sources */,
 				075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */,
 				078642E922E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift in Sources */,
 				075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */,
@@ -528,7 +540,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
 				PRODUCT_MODULE_NAME = NeatTipView;
@@ -718,7 +730,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
 				PRODUCT_MODULE_NAME = NeatTipView;

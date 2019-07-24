@@ -15,38 +15,39 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
     preferences.animationPreferences.disappearanceAnimationType = .toLeft
-    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
   }
   
   @IBAction func fromRightButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromRight
     preferences.animationPreferences.disappearanceAnimationType = .toRight
-    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
   }
   
   @IBAction func fromBottomBottomTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromBottom
     preferences.animationPreferences.disappearanceAnimationType = .toBottom
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
   }
   
   @IBAction func fromTopButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromTop
     preferences.animationPreferences.disappearanceAnimationType = .toTop
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
   }
   
   func showTipView(with preferences: NeatViewPreferences,
                    center: CGPoint,
                    arrowPosition: ArrowPosition) {
-    let tipView = NeatTipView(centerPoint: center,
+    let tipView = NeatTipView(superview: view,
+                              centerPoint: center,
                               attributedString: attributedString(),
                               preferences: preferences,
                               arrowPosition: arrowPosition)
-    tipView.show(in: view)
+    tipView.show()
   }
   
   func attributedString() -> NSAttributedString {
