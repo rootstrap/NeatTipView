@@ -103,13 +103,12 @@ public class NeatTipView: UIView {
   
   //MARK: constraints initialization
   
-  lazy var finalBubbleConstraints: [NSLayoutConstraint] = createFinalBubbleConstraints()
+  var superInitialConstraints: [NSLayoutConstraint]?
+  lazy var superConstraints: [NSLayoutConstraint] = createSuperConstraints()
   
-  lazy var dismissedBubbleConstraints: [NSLayoutConstraint] = createDismissedBubbleConstraints()
+  lazy var bubbleConstraints: [NSLayoutConstraint] = createBubbleConstraints()
   
   lazy var bubbleToArrowConstraint: NSLayoutConstraint = createBubbleToArrowConstraint()
-  
-  lazy var initialBubbleConstraints: [NSLayoutConstraint] = createInitialBubbleConstraints()
   
   lazy var bubbleBottomArrowConstraint: NSLayoutConstraint = createBubbleBottomArrowConstraint()
   
@@ -117,11 +116,7 @@ public class NeatTipView: UIView {
   
   lazy var sizeArrowConstraints: [NSLayoutConstraint] = createSizeArrowConstraints()
   
-  lazy var finalArrowConstraints: [NSLayoutConstraint] = createFinalArrowConstraints()
-  
-  lazy var initialArrowConstraints: [NSLayoutConstraint] = createInitialArrowConstraints()
-  
-  lazy var dismissedArrowConstraints: [NSLayoutConstraint] = createDismissedArrowConstraints()
+  lazy var arrowConstraints: [NSLayoutConstraint] = createArrowConstraints()
   
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = createArrowBottomConstraints()
   
@@ -132,9 +127,7 @@ public class NeatTipView: UIView {
   lazy var arrowTopConstraints: [NSLayoutConstraint] = createArrowTopConstraints()
   
   var bubbleDistanceFromBottom: CGFloat {
-    //for initial constraints the bound is zero for smoother animations assume the superview is as big as the screen
-    let viewHeight = bounds.height == 0 ? Constants.screenHeight : bounds.height
-    return viewHeight - centerPoint.y +
+    return bounds.height - centerPoint.y +
       layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
   }
   
@@ -176,24 +169,19 @@ public class NeatTipView: UIView {
     translatesAutoresizingMaskIntoConstraints = false
     tipSuperview.addSubview(self)
     
-    NSLayoutConstraint.activate([
-      tipSuperview.topAnchor.constraint(equalTo: topAnchor),
-      tipSuperview.leadingAnchor.constraint(equalTo: leadingAnchor),
-      tipSuperview.trailingAnchor.constraint(equalTo: trailingAnchor),
-      tipSuperview.bottomAnchor.constraint(equalTo: bottomAnchor)
-      ])
+//    let initialConstraints = createSuperConstraints(offset: CGPoint(x: 1000, y: 0))
+//    NSLayoutConstraint.activate(initialConstraints)
+//    setNeedsLayout()
+//    layoutIfNeeded()
+//
+//    NSLayoutConstraint.deactivate(initialConstraints)
+    NSLayoutConstraint.activate(superConstraints)
     
     setNeedsLayout()
     layoutIfNeeded()
-    
     //refreshing constraints that depend on the superview frame
     bubbleBottomArrowConstraint.constant = -bubbleDistanceFromBottom
     
-    //animating views on appearance
-    NSLayoutConstraint.deactivate(initialArrowConstraints)
-    NSLayoutConstraint.deactivate(initialBubbleConstraints)
-    NSLayoutConstraint.activate(finalBubbleConstraints)
-    NSLayoutConstraint.activate(finalArrowConstraints)
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
                     self?.layoutIfNeeded()
@@ -231,11 +219,6 @@ public class NeatTipView: UIView {
   
   @objc
   func dismissTip() {
-    NSLayoutConstraint.deactivate(finalBubbleConstraints)
-    NSLayoutConstraint.deactivate(finalArrowConstraints)
-    NSLayoutConstraint.activate(dismissedBubbleConstraints)
-    NSLayoutConstraint.activate(dismissedArrowConstraints)
-    
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
                     self?.layoutIfNeeded()
@@ -363,8 +346,8 @@ public class NeatTipView: UIView {
                                     constant: -layoutPreferences.verticalInsets)
       ]
     
-    constraints.append(contentsOf: initialBubbleConstraints)
-    constraints.append(contentsOf: initialArrowConstraints)
+    constraints.append(contentsOf: arrowConstraints)
+    constraints.append(contentsOf: bubbleConstraints)
     
     NSLayoutConstraint.activate(constraints)
   }
