@@ -103,13 +103,9 @@ public class NeatTipView: UIView {
   
   //MARK: constraints initialization
   
-  lazy var finalBubbleConstraints: [NSLayoutConstraint] = createFinalBubbleConstraints()
-  
-  lazy var dismissedBubbleConstraints: [NSLayoutConstraint] = createDismissedBubbleConstraints()
+  lazy var bubbleConstraints: [NSLayoutConstraint] = createBubbleConstraints()
   
   lazy var bubbleToArrowConstraint: NSLayoutConstraint = createBubbleToArrowConstraint()
-  
-  lazy var initialBubbleConstraints: [NSLayoutConstraint] = createInitialBubbleConstraints()
   
   lazy var bubbleBottomArrowConstraint: NSLayoutConstraint = createBubbleBottomArrowConstraint()
   
@@ -117,11 +113,7 @@ public class NeatTipView: UIView {
   
   lazy var sizeArrowConstraints: [NSLayoutConstraint] = createSizeArrowConstraints()
   
-  lazy var finalArrowConstraints: [NSLayoutConstraint] = createFinalArrowConstraints()
-  
-  lazy var initialArrowConstraints: [NSLayoutConstraint] = createInitialArrowConstraints()
-  
-  lazy var dismissedArrowConstraints: [NSLayoutConstraint] = createDismissedArrowConstraints()
+  lazy var arrowConstraints: [NSLayoutConstraint] = createArrowConstraints()
   
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = createArrowBottomConstraints()
   
@@ -189,11 +181,6 @@ public class NeatTipView: UIView {
     //refreshing constraints that depend on the superview frame
     bubbleBottomArrowConstraint.constant = -bubbleDistanceFromBottom
     
-    //animating views on appearance
-    NSLayoutConstraint.deactivate(initialArrowConstraints)
-    NSLayoutConstraint.deactivate(initialBubbleConstraints)
-    NSLayoutConstraint.activate(finalBubbleConstraints)
-    NSLayoutConstraint.activate(finalArrowConstraints)
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
                     self?.layoutIfNeeded()
@@ -231,15 +218,9 @@ public class NeatTipView: UIView {
   
   @objc
   func dismissTip() {
-    NSLayoutConstraint.deactivate(finalBubbleConstraints)
-    NSLayoutConstraint.deactivate(finalArrowConstraints)
-    NSLayoutConstraint.activate(dismissedBubbleConstraints)
-    NSLayoutConstraint.activate(dismissedArrowConstraints)
-    
     UIView.animate(withDuration: animationPreferences.animationDuration,
                    animations: { [weak self] in
-                    self?.layoutIfNeeded()
-                    self?.backgroundView.alpha = 0
+                    self?.alpha = 0
                    },
                    completion: { [weak self] _ in
                     self?.removeFromSuperview()
@@ -356,8 +337,8 @@ public class NeatTipView: UIView {
                                     constant: -layoutPreferences.verticalInsets)
       ]
     
-    constraints.append(contentsOf: initialBubbleConstraints)
-    constraints.append(contentsOf: initialArrowConstraints)
+    constraints.append(contentsOf: bubbleConstraints)
+    constraints.append(contentsOf: arrowConstraints)
     
     NSLayoutConstraint.activate(constraints)
   }
