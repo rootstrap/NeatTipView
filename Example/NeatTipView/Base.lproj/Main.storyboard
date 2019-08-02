@@ -23,21 +23,20 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmg-DT-ERb">
                                 <rect key="frame" x="158" y="137" width="59" height="30"/>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.81568627449999997" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="from left"/>
                                 <connections>
                                     <action selector="fromLeftButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BVs-nJ-Uls"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBw-a3-xuB">
-                                <rect key="frame" x="5" y="232" width="68" height="30"/>
+                                <rect key="frame" x="153.5" y="232" width="68" height="30"/>
                                 <state key="normal" title="from right"/>
                                 <connections>
                                     <action selector="fromRightButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="vkr-DW-fWj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-RG-K9e">
-                                <rect key="frame" x="306" y="339" width="59" height="30"/>
+                                <rect key="frame" x="158" y="339" width="59" height="30"/>
                                 <state key="normal" title="from top"/>
                                 <connections>
                                     <action selector="fromTopButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="mma-CN-mKm"/>
@@ -47,7 +46,7 @@
                                 <rect key="frame" x="144.5" y="449" width="86" height="30"/>
                                 <state key="normal" title="from bottom"/>
                                 <connections>
-                                    <action selector="fromBottomButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="RCb-zh-0Yb"/>
+                                    <action selector="fromBottomButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BJq-Wd-0v9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,10 +56,10 @@
                             <constraint firstItem="RBw-a3-xuB" firstAttribute="top" secondItem="Nmg-DT-ERb" secondAttribute="bottom" constant="65" id="I9K-oC-ocg"/>
                             <constraint firstItem="uBM-8H-Kj1" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="LJd-sB-gH5"/>
                             <constraint firstItem="uBM-8H-Kj1" firstAttribute="top" secondItem="fcf-RG-K9e" secondAttribute="bottom" constant="80" id="Ooh-ga-ABX"/>
+                            <constraint firstItem="fcf-RG-K9e" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="Teg-hh-CTO"/>
                             <constraint firstItem="Nmg-DT-ERb" firstAttribute="top" secondItem="8NB-VS-v4Y" secondAttribute="bottom" constant="117" id="UJv-3U-aPO"/>
-                            <constraint firstAttribute="trailing" secondItem="fcf-RG-K9e" secondAttribute="trailing" constant="10" id="Xv6-2o-co0"/>
-                            <constraint firstItem="RBw-a3-xuB" firstAttribute="leading" secondItem="h3G-cJ-stE" secondAttribute="leading" constant="5" id="dOf-MW-QAy"/>
                             <constraint firstItem="fcf-RG-K9e" firstAttribute="top" secondItem="RBw-a3-xuB" secondAttribute="bottom" constant="77" id="e1H-UJ-sRF"/>
+                            <constraint firstItem="RBw-a3-xuB" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="lwm-rp-s7s"/>
                         </constraints>
                     </view>
                 </viewController>

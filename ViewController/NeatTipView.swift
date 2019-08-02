@@ -216,14 +216,14 @@ public class NeatTipView: UIView {
   
   //MARK: Views configuration
   
-  fileprivate func configureViews() {
+  private func configureViews() {
     addSubviews()
     label.attributedText = attributedString
     activateConstraints()
     addDismissGesture()
   }
   
-  fileprivate func addDismissGesture() {
+  private func addDismissGesture() {
     let tapGesture = UITapGestureRecognizer(target: self,
                                             action: #selector(dismissTip))
     addGestureRecognizer(tapGesture)
@@ -246,7 +246,7 @@ public class NeatTipView: UIView {
                    })
   }
   
-  fileprivate func addSubviews() {
+  private func addSubviews() {
     backgroundColor = .clear
     addSubview(backgroundView)
     addSubview(bubbleView)
@@ -255,29 +255,28 @@ public class NeatTipView: UIView {
     addSubview(arrowView)
   }
   
-  fileprivate func tipFits(in superview: UIView, for arrowPosition: ArrowPosition) -> Bool {
-    let verticalAvailableWidth = superview.bounds.width -
+  private func tipFits(in superview: UIView, for arrowPosition: ArrowPosition) -> Bool {
+    let availableWidth = superview.bounds.width -
       (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2
-    let horizontalAvailableHeight = superview.bounds.height -
+    let availableHeight = superview.bounds.height -
       superview.safeAreaInsets.bottom - superview.safeAreaInsets.top -
       (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2
     
     switch arrowPosition {
     case .bottom:
-      return fitsAtTop(in: superview, with: verticalAvailableWidth)
+      return fitsAtTop(in: superview, with: availableWidth)
     case .top:
-      return fitsAtBottom(in: superview, with: verticalAvailableWidth)
+      return fitsAtBottom(in: superview, with: availableWidth)
     case .left:
-      return fitsInRight(in: superview, with: horizontalAvailableHeight)
+      return fitsInRight(in: superview, with: availableHeight)
     case .right:
-      return fitsInLeft(in: superview, with: horizontalAvailableHeight)
-    default: break
+      return fitsInLeft(in: superview, with: availableHeight)
+    default:
+      return false
     }
-    
-    return false
   }
   
-  fileprivate func fitsAtBottom(in superview: UIView, with availableWidth: CGFloat) -> Bool {
+  private func fitsAtBottom(in superview: UIView, with availableWidth: CGFloat) -> Bool {
     let availableHeight = superview.bounds.height - superview.safeAreaInsets.bottom - centerPoint.y -
       (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
       layoutPreferences.arrowHeight
@@ -288,7 +287,7 @@ public class NeatTipView: UIView {
     return availableHeight > size.height
   }
   
-  fileprivate func fitsAtTop(in superview: UIView, with availableWidth: CGFloat) -> Bool {
+  private func fitsAtTop(in superview: UIView, with availableWidth: CGFloat) -> Bool {
     let availableHeight = centerPoint.y - superview.safeAreaInsets.top -
       (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
       layoutPreferences.arrowHeight
@@ -299,7 +298,7 @@ public class NeatTipView: UIView {
     return availableHeight > size.height
   }
   
-  fileprivate func fitsInRight(in superview: UIView, with availableHeight: CGFloat) -> Bool {
+  private func fitsInRight(in superview: UIView, with availableHeight: CGFloat) -> Bool {
     let availableWidth = superview.bounds.width - centerPoint.x -
       (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2 -
       layoutPreferences.arrowHeight
@@ -312,7 +311,7 @@ public class NeatTipView: UIView {
     return availableHeight > size.height
   }
   
-  fileprivate func fitsInLeft(in superview: UIView, with availableHeight: CGFloat) -> Bool {
+  private func fitsInLeft(in superview: UIView, with availableHeight: CGFloat) -> Bool {
     let availableWidth = centerPoint.x -
       (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2 -
       layoutPreferences.arrowHeight
@@ -325,7 +324,7 @@ public class NeatTipView: UIView {
     return availableHeight > size.height
   }
   
-  fileprivate func whereDoesItFit(in superview: UIView,
+  private func whereDoesItFit(in superview: UIView,
                                   preferredPosition: ArrowPosition) -> ArrowPosition? {
     if tipFits(in: superview, for: preferredPosition) {
       return preferredPosition
@@ -337,16 +336,10 @@ public class NeatTipView: UIView {
       ArrowPosition.horizontalPositions :
       ArrowPosition.verticalPositions
     
-    for arrowPosition in remainingPositions {
-      if tipFits(in: superview, for: arrowPosition) {
-        return arrowPosition
-      }
-    }
-    
-    return nil
+    return remainingPositions.first { tipFits(in: superview, for: $0) }
   }
   
-  fileprivate func activateConstraints() {
+  private func activateConstraints() {
     var constraints = [
       backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
       backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
