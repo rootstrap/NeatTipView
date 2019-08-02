@@ -34,6 +34,7 @@ public struct NeatLayoutPreferences {
   public var horizontalInsets: CGFloat = 20
   public var verticalInsets: CGFloat = 20
   public var contentHorizontalInsets: CGFloat = 10
+  public var minWidth: CGFloat = 30
   public var contentVerticalInsets: CGFloat = 10
   public var arrowWidth: CGFloat = 15
   public var arrowHeight: CGFloat = 10

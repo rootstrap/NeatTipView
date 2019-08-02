@@ -14,6 +14,33 @@ public enum ArrowPosition {
   case left
   case right
   case any
+  
+  var isVerticalArrow: Bool {
+    return self == .top || self == .bottom
+  }
+  
+  var counterpart: ArrowPosition {
+    switch self {
+    case .left:
+      return .right
+    case .right:
+      return .left
+    case .top:
+      return .bottom
+    case .bottom:
+      return .top
+    default:
+      return .any
+    }
+  }
+  
+  static var verticalPositions: [ArrowPosition] {
+    return [.top, .bottom]
+  }
+  
+  static var horizontalPositions: [ArrowPosition] {
+    return [.left, .right]
+  }
 }
 
 struct Constants {
@@ -80,7 +107,7 @@ public class NeatTipView: UIView {
   
   lazy var dismissedBubbleConstraints: [NSLayoutConstraint] = createDismissedBubbleConstraints()
   
-  lazy var bubbleVerticalConstraint: NSLayoutConstraint = createBubbleVerticalConstraint()
+  lazy var bubbleToArrowConstraint: NSLayoutConstraint = createBubbleToArrowConstraint()
   
   lazy var initialBubbleConstraints: [NSLayoutConstraint] = createInitialBubbleConstraints()
   
@@ -98,6 +125,10 @@ public class NeatTipView: UIView {
   
   lazy var arrowBottomConstraints: [NSLayoutConstraint] = createArrowBottomConstraints()
   
+  lazy var arrowLeftConstraints: [NSLayoutConstraint] = createArrowLeftConstraints()
+  
+  lazy var arrowRightConstraints: [NSLayoutConstraint] = createArrowRightConstraints()
+  
   lazy var arrowTopConstraints: [NSLayoutConstraint] = createArrowTopConstraints()
   
   var bubbleDistanceFromBottom: CGFloat {
@@ -112,23 +143,32 @@ public class NeatTipView: UIView {
       layoutPreferences.verticalInsets
   }
   
+  var arrowDistanceFromLeft: CGFloat {
+    return centerPoint.x + layoutPreferences.horizontalInsets - layoutPreferences.arrowHeight
+  }
+  
+  var arrowDistanceFromRight: CGFloat {
+    return tipSuperview.bounds.width - centerPoint.x + layoutPreferences.horizontalInsets
+  }
+  
   //MARK: APIs
   
   public init(superview: UIView,
               centerPoint: CGPoint,
               attributedString: NSAttributedString,
               preferences: NeatViewPreferences = NeatViewPreferences(),
-              arrowPosition: ArrowPosition = .any) {
+              arrowPosition: ArrowPosition = .top) {
     self.centerPoint = centerPoint
     self.attributedString = attributedString
     self.preferences = preferences
-    self.arrowPosition = arrowPosition
+    self.arrowPosition = arrowPosition == .any ? .top : arrowPosition
     tipSuperview = superview
     super.init(frame: CGRect.zero)
-    if !tipFits(in: superview, for: arrowPosition),
-      let preferredArrowPosition = whereDoesItFit(in: superview) {
-      self.arrowPosition = preferredArrowPosition
+    
+    if let position = whereDoesItFit(in: superview, preferredPosition: arrowPosition) {
+      self.arrowPosition = position
     }
+    
     configureViews()
   }
   
@@ -176,14 +216,14 @@ public class NeatTipView: UIView {
   
   //MARK: Views configuration
   
-  fileprivate func configureViews() {
+  private func configureViews() {
     addSubviews()
     label.attributedText = attributedString
     activateConstraints()
     addDismissGesture()
   }
   
-  fileprivate func addDismissGesture() {
+  private func addDismissGesture() {
     let tapGesture = UITapGestureRecognizer(target: self,
                                             action: #selector(dismissTip))
     addGestureRecognizer(tapGesture)
@@ -206,7 +246,7 @@ public class NeatTipView: UIView {
                    })
   }
   
-  fileprivate func addSubviews() {
+  private func addSubviews() {
     backgroundColor = .clear
     addSubview(backgroundView)
     addSubview(bubbleView)
@@ -215,42 +255,91 @@ public class NeatTipView: UIView {
     addSubview(arrowView)
   }
   
-  fileprivate func tipFits(in superview: UIView, for arrowPosition: ArrowPosition) -> Bool {
-    var availableHeight: CGFloat = 0
-    var availableWidth: CGFloat = 0
-    let verticalAvailableWidth = superview.bounds.width -
+  private func tipFits(in superview: UIView, for arrowPosition: ArrowPosition) -> Bool {
+    let availableWidth = superview.bounds.width -
       (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2
+    let availableHeight = superview.bounds.height -
+      superview.safeAreaInsets.bottom - superview.safeAreaInsets.top -
+      (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2
     
     switch arrowPosition {
     case .bottom:
-      availableWidth = verticalAvailableWidth
-      availableHeight = centerPoint.y - superview.safeAreaInsets.top -
-        (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
-        layoutPreferences.arrowHeight
+      return fitsAtTop(in: superview, with: availableWidth)
+    case .top:
+      return fitsAtBottom(in: superview, with: availableWidth)
+    case .left:
+      return fitsInRight(in: superview, with: availableHeight)
+    case .right:
+      return fitsInLeft(in: superview, with: availableHeight)
     default:
-      availableWidth = verticalAvailableWidth
-      availableHeight = superview.bounds.height - superview.safeAreaInsets.bottom - centerPoint.y -
-        (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
-        layoutPreferences.arrowHeight
+      return false
     }
+  }
+  
+  private func fitsAtBottom(in superview: UIView, with availableWidth: CGFloat) -> Bool {
+    let availableHeight = superview.bounds.height - superview.safeAreaInsets.bottom - centerPoint.y -
+      (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
+      layoutPreferences.arrowHeight
     
     let size = attributedString.size(with: CGSize(width: availableWidth,
                                                   height: CGFloat.greatestFiniteMagnitude))
     
-    return size.height < availableHeight
+    return availableHeight > size.height
   }
   
-  fileprivate func whereDoesItFit(in superview: UIView) -> ArrowPosition? {
-    for arrowPosition in [ArrowPosition.top, ArrowPosition.bottom] {
-      if tipFits(in: superview, for: arrowPosition) {
-        return arrowPosition
-      }
+  private func fitsAtTop(in superview: UIView, with availableWidth: CGFloat) -> Bool {
+    let availableHeight = centerPoint.y - superview.safeAreaInsets.top -
+      (layoutPreferences.verticalInsets + layoutPreferences.contentVerticalInsets) * 2 -
+      layoutPreferences.arrowHeight
+    
+    let size = attributedString.size(with: CGSize(width: availableWidth,
+                                                  height: CGFloat.greatestFiniteMagnitude))
+    
+    return availableHeight > size.height
+  }
+  
+  private func fitsInRight(in superview: UIView, with availableHeight: CGFloat) -> Bool {
+    let availableWidth = superview.bounds.width - centerPoint.x -
+      (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2 -
+      layoutPreferences.arrowHeight
+    
+    guard availableWidth > layoutPreferences.minWidth else { return false }
+    
+    let size = attributedString.size(with: CGSize(width: availableWidth,
+                                                  height: CGFloat.greatestFiniteMagnitude))
+    
+    return availableHeight > size.height
+  }
+  
+  private func fitsInLeft(in superview: UIView, with availableHeight: CGFloat) -> Bool {
+    let availableWidth = centerPoint.x -
+      (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2 -
+      layoutPreferences.arrowHeight
+    
+    guard availableWidth > layoutPreferences.minWidth else { return false }
+    
+    let size = attributedString.size(with: CGSize(width: availableWidth,
+                                                  height: CGFloat.greatestFiniteMagnitude))
+    
+    return availableHeight > size.height
+  }
+  
+  private func whereDoesItFit(in superview: UIView,
+                                  preferredPosition: ArrowPosition) -> ArrowPosition? {
+    if tipFits(in: superview, for: preferredPosition) {
+      return preferredPosition
+    } else if tipFits(in: superview, for: preferredPosition.counterpart) {
+      return preferredPosition.counterpart
     }
     
-    return nil
+    let remainingPositions = preferredPosition.isVerticalArrow ?
+      ArrowPosition.horizontalPositions :
+      ArrowPosition.verticalPositions
+    
+    return remainingPositions.first { tipFits(in: superview, for: $0) }
   }
   
-  fileprivate func activateConstraints() {
+  private func activateConstraints() {
     var constraints = [
       backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
       backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
