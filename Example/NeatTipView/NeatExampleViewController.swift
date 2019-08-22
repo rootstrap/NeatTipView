@@ -15,14 +15,14 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
     preferences.animationPreferences.disappearanceAnimationType = .toLeft
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .right)
   }
   
   @IBAction func fromRightButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromRight
     preferences.animationPreferences.disappearanceAnimationType = .toRight
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .left)
   }
   
   @IBAction func fromBottomButtonTapped(sender: UIButton) {
@@ -36,7 +36,7 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromTop
     preferences.animationPreferences.disappearanceAnimationType = .toTop
-    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
   }
   
   func showTipView(with preferences: NeatViewPreferences,
