@@ -64,7 +64,7 @@ public class BubbleView: UIView {
     self.parentView = parentView
     self.preferences = preferences
     super.init(frame: .zero)
-    
+
     translatesAutoresizingMaskIntoConstraints = false
     backgroundColor = .clear
     setupViews()
