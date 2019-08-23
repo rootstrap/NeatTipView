@@ -12,35 +12,77 @@ extension NeatTipView {
   //MARK: Bubble constraints
   
   func createBubbleConstraints() -> [NSLayoutConstraint] {
-    return arrowPosition.isVerticalArrow ?
-      createVerticalBubbleConstraints() :
-      createHorizontalBubbleConstraints()
+    return arrowPosition.isVerticalArrow ? verticalBubbleConstraints : horizontalBubbleConstraints
   }
   
-  func createVerticalBubbleConstraints() -> [NSLayoutConstraint] {
+  var verticalBubbleConstraints: [NSLayoutConstraint] {
     return [
-      bubbleView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor,
-                                          constant: layoutPreferences.horizontalInsets),
-      bubbleView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor,
-                                           constant: -layoutPreferences.horizontalInsets),
+      bubbleView.leadingAnchor.constraint(
+        greaterThanOrEqualTo: leadingAnchor,
+        constant: layoutPreferences.horizontalInsets
+      ),
+      bubbleView.trailingAnchor.constraint(
+        lessThanOrEqualTo: trailingAnchor,
+        constant: -layoutPreferences.horizontalInsets
+      ),
     ]
   }
   
-  func createHorizontalBubbleConstraints() -> [NSLayoutConstraint] {
+  var horizontalBubbleConstraints: [NSLayoutConstraint] {
     return [
-      bubbleView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor,
-                                         constant: -layoutPreferences.verticalInsets),
-      bubbleToViewHorizontalConstraint()
+      bubbleView.bottomAnchor.constraint(
+        lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor,
+        constant: -layoutPreferences.verticalInsets
+      ),
+      bubbleToViewHorizontalConstraint
     ]
   }
   
-  func bubbleToViewHorizontalConstraint() -> NSLayoutConstraint {
+  var bubbleToViewHorizontalConstraint: NSLayoutConstraint {
     if arrowPosition == .left {
-      return bubbleView.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                  constant: -layoutPreferences.horizontalInsets)
+      return bubbleView.trailingAnchor.constraint(
+        equalTo: trailingAnchor,
+        constant: -layoutPreferences.horizontalInsets
+      )
     } else {
-      return bubbleView.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                 constant: layoutPreferences.horizontalInsets)
+      return bubbleView.leadingAnchor.constraint(
+        equalTo: leadingAnchor,
+        constant: layoutPreferences.horizontalInsets
+      )
+    }
+  }
+
+  var bubblePositionConstraints: [NSLayoutConstraint] {
+    switch arrowPosition {
+    case .any, .top:
+      return [
+        bubbleView.topAnchor.constraint(
+          equalTo: topAnchor,
+          constant: bubbleView.centerPoint.y + layoutPreferences.contentVerticalInsets
+        ),
+        bubbleView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor),
+      ]
+    case .bottom:
+      return [bubbleView.bottomAnchor.constraint(
+        equalTo: topAnchor,
+        constant: bubbleView.centerPoint.y - layoutPreferences.contentVerticalInsets
+        )]
+    case .left:
+      return [
+        bubbleView.leadingAnchor.constraint(
+          equalTo: leadingAnchor,
+          constant: bubbleView.centerPoint.x + layoutPreferences.contentHorizontalInsets
+        ),
+        verticalCenterBubbleConstraint
+      ]
+    case .right:
+      return [
+        bubbleView.trailingAnchor.constraint(
+          equalTo: leadingAnchor,
+          constant: bubbleView.centerPoint.x - layoutPreferences.contentHorizontalInsets
+        ),
+        verticalCenterBubbleConstraint
+      ]
     }
   }
 }

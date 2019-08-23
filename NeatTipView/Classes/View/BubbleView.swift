@@ -7,8 +7,7 @@
 
 import UIKit
 
-public class BubbleView: UIView {
-  public var parentView: UIView?
+public class NeatBubbleView: UIView {
   public var centerPoint: CGPoint
   public var preferences: NeatViewPreferences
   public var attributedString: NSAttributedString
@@ -52,16 +51,16 @@ public class BubbleView: UIView {
   }()
 
 
-  public init(with parentView: UIView,
-              and centerPoint: CGPoint,
-              message attributedString: NSAttributedString,
-              preferences: NeatViewPreferences = NeatViewPreferences(),
-              arrowPosition: ArrowPosition = .top) {
+  public init(
+    with centerPoint: CGPoint,
+    message attributedString: NSAttributedString,
+    preferences: NeatViewPreferences = NeatViewPreferences(),
+    arrowPosition: ArrowPosition = .top
+  ) {
     self.centerPoint = centerPoint
     self.attributedString = attributedString
     self.preferences = preferences
     self.arrowPosition = arrowPosition == .any ? .top : arrowPosition
-    self.parentView = parentView
     self.preferences = preferences
     super.init(frame: .zero)
 
@@ -74,7 +73,6 @@ public class BubbleView: UIView {
     arrowPosition = .bottom
     preferences = NeatViewPreferences()
     arrowPosition = .top
-    parentView = nil
     centerPoint = .zero
     attributedString = NSAttributedString(string: "")
     super.init(coder: aDecoder)
