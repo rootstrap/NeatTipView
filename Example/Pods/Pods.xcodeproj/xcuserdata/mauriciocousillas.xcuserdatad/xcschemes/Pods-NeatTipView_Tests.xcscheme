@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3EAE65D87973D9378FB665F9CAA808D4"
+               BlueprintIdentifier = "7675BBBD38873F418D39F75D3F9EC30C"
                BuildableName = "Pods_NeatTipView_Tests.framework"
                BlueprintName = "Pods-NeatTipView_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3EAE65D87973D9378FB665F9CAA808D4"
+            BlueprintIdentifier = "7675BBBD38873F418D39F75D3F9EC30C"
             BuildableName = "Pods_NeatTipView_Tests.framework"
             BlueprintName = "Pods-NeatTipView_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">

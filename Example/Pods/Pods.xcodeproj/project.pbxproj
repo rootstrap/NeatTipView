@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		073EBE4B22E8D2640027CC8F /* AttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */; };
-		075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C31F922E22EDC001D2067 /* NeatArrowView.swift */; };
-		075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C320222E25300001D2067 /* NeatViewPreferences.swift */; };
-		078642E922E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078642E822E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift */; };
-		2AAFA3AC36156251C039445A43450ABD /* NeatTipView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FD6FCE09708E6ABFF4B19C8470FFB0 /* NeatTipView-dummy.m */; };
-		409869D70A9F18CF2F3ACC1E7688D06F /* Pods-NeatTipView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB8D3A2399FF309F404C32BF7B40C657 /* Pods-NeatTipView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E09A686D0FBFF65520DDCF210DB24A0 /* NeatTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB3FEC668DDD02EAA5EA26729DBCDD3 /* NeatTipView.swift */; };
+		2BEDA8E09B1F093C0E5239687AA41765 /* NeatTipViewConstraintsInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FD0AB258154E09547DC334104C7A5F /* NeatTipViewConstraintsInitialization.swift */; };
+		31409B082AAB9D7AC511E07651606DF5 /* NeatViewPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ACEFAE3348A6B09E234AF266E1A9E3 /* NeatViewPreferences.swift */; };
+		3764E2157728097F3EDB2821E1A7D722 /* NeatTipView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC0798E2581C4CC453A8C7573AFEE4E /* NeatTipView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A12228C773A57593EEB0C8061944831 /* NeatArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8073A86B1F56044CDF0FC76E32BCA0 /* NeatArrowView.swift */; };
+		409869D70A9F18CF2F3ACC1E7688D06F /* Pods-NeatTipView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F43F43A81FB7C8D990488702EC128D32 /* Pods-NeatTipView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5742334C2C52C6CE3C242D7A0B4CCD90 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		7BAD4962A353E2A5186E35782236FDD9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		8170AF0717517E9DE6F8B51B7B514D7B /* NeatTipView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67FF80DD88A9D9EBD8C222E7F94E2D99 /* NeatTipView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		982721C67029BB76DEA21C15F9B077B5 /* Pods-NeatTipView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0BC9BA9BD845E807ED50EC520A7A0 /* Pods-NeatTipView_Example-dummy.m */; };
-		A213BAFF320FA6BC226E7696A5956589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A5DE66FE88D48F60487C7C44F48805B2 /* NeatTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE999E5032707A9895359AF50C9FD923 /* NeatTipView.swift */; };
-		B2B36E9235EC440AA01BCCF3F69F397D /* Pods-NeatTipView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA2762F8B12C0E58A2CDF45F48F68F6 /* Pods-NeatTipView_Tests-dummy.m */; };
-		D095BAD3F3F08029EFAFA53D24581B2B /* Pods-NeatTipView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE18417385AEB107E9FED166788FEC41 /* Pods-NeatTipView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8921A4949CCC23566A303A1C86FDB1DC /* NeatTipView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A801468B93B43BD470A1B8E51D00E58E /* NeatTipView-dummy.m */; };
+		982721C67029BB76DEA21C15F9B077B5 /* Pods-NeatTipView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8308E32C94790D9A540D4133D56346 /* Pods-NeatTipView_Example-dummy.m */; };
+		B2B36E9235EC440AA01BCCF3F69F397D /* Pods-NeatTipView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 445E4EBA74C94F1A8952B18BA2EDB8C7 /* Pods-NeatTipView_Tests-dummy.m */; };
+		D095BAD3F3F08029EFAFA53D24581B2B /* Pods-NeatTipView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 379A6CCC0903D3E121B772CF8213533F /* Pods-NeatTipView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAD8E3CC1F31DDD566685BAAFDA6C368 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		FA3909E97471A733ACC8DEFCDCA07199 /* AttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FE1C9D5A30DDCD32C8D13F65F1634F /* AttributedStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,55 +28,55 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 81BA65E52C4EE77C88CDA48B5DE0C023;
+			remoteGlobalIDString = 790C06FAEE7CAAD458CDD8B2EBCA9B81;
 			remoteInfo = NeatTipView;
 		};
 		8BA264E2CEBBC4405937C24288CBBFEB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 652E84968472EFE5C8D6C4EE58533307;
+			remoteGlobalIDString = 18029CA1B39C5F8FA24E46AB85EB1414;
 			remoteInfo = "Pods-NeatTipView_Example";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04C4D29CC82BE63F307778AF5095C19F /* Pods-NeatTipView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		05E9EE951C0A4AA7C587B67818065762 /* NeatTipView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NeatTipView.modulemap; sourceTree = "<group>"; };
-		073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtension.swift; sourceTree = "<group>"; };
-		075C31F922E22EDC001D2067 /* NeatArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatArrowView.swift; sourceTree = "<group>"; };
-		075C320222E25300001D2067 /* NeatViewPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatViewPreferences.swift; sourceTree = "<group>"; };
-		078642E822E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatTipViewConstraintsInitialization.swift; sourceTree = "<group>"; };
-		0C08DE34882B7727A24860C733F1714C /* Pods-NeatTipView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		1BF0BC9BA9BD845E807ED50EC520A7A0 /* Pods-NeatTipView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Example-dummy.m"; sourceTree = "<group>"; };
-		2816E3F58A149E2FEA978C151CD9485F /* NeatTipView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NeatTipView.xcconfig; sourceTree = "<group>"; };
-		29573F6B66644BBD8461565D16CAD58A /* Pods-NeatTipView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		06ACEFAE3348A6B09E234AF266E1A9E3 /* NeatViewPreferences.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatViewPreferences.swift; sourceTree = "<group>"; };
+		15C16820EC517DA5DC457A8DE8F96D3C /* Pods_NeatTipView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeatTipView_Example.framework; path = "Pods-NeatTipView_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CE34242796FC824CACCC271A947CD99 /* Pods-NeatTipView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeatTipView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1E2D8B0EF9111655343F837722504B10 /* Pods-NeatTipView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeatTipView_Tests.modulemap"; sourceTree = "<group>"; };
+		2B53D0E946957C7956A553AAD31CE1B7 /* Pods-NeatTipView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2CF9B5C00FE01AE4979CD3CEF611507D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2DE49572C71B7560BA26A0B05FE6537F /* Pods-NeatTipView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeatTipView_Example.modulemap"; sourceTree = "<group>"; };
+		311C5265A5EFB182C9CA4C64CA7B4346 /* Pods-NeatTipView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Tests-Info.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		39F282D65EBD1AE4D4A3301393144518 /* Pods-NeatTipView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Example-Info.plist"; sourceTree = "<group>"; };
-		46DDF68F9F72E8E1E9B6B346A896EA12 /* NeatTipView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = NeatTipView.podspec; sourceTree = "<group>"; tabWidth = 2; };
-		47FD6FCE09708E6ABFF4B19C8470FFB0 /* NeatTipView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NeatTipView-dummy.m"; sourceTree = "<group>"; };
-		50B84E29A439258311CAFD8FBAE6DFA9 /* Pods-NeatTipView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		56BF33F0788A312240C3208B4E01EFE1 /* Pods_NeatTipView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeatTipView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CA986ABA21FEAC61E8CDB6319DA7B79 /* NeatTipView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NeatTipView-prefix.pch"; sourceTree = "<group>"; };
-		602E1D04C8401857B5F702D1687B8305 /* Pods-NeatTipView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeatTipView_Example-frameworks.sh"; sourceTree = "<group>"; };
-		67FF80DD88A9D9EBD8C222E7F94E2D99 /* NeatTipView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NeatTipView-umbrella.h"; sourceTree = "<group>"; };
-		7C7C6A026A262B42CF9EB8CB7994C0FE /* Pods-NeatTipView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeatTipView_Example.modulemap"; sourceTree = "<group>"; };
-		85749ECF2E6FA4FE9C434CDC65FC1761 /* Pods_NeatTipView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeatTipView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953BDC585B2A65D9BA47A397C6DC28C3 /* NeatTipView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NeatTipView-Info.plist"; sourceTree = "<group>"; };
-		9C5AAA8B8E1C9C8477387135C0213861 /* Pods-NeatTipView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeatTipView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F1E996A2FC562C4DD3AF080FE7E4E7C /* Pods-NeatTipView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9FA2762F8B12C0E58A2CDF45F48F68F6 /* Pods-NeatTipView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Tests-dummy.m"; sourceTree = "<group>"; };
-		A5892E0FCA05FECE4964D7A11E794CFC /* Pods-NeatTipView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NeatTipView_Tests.modulemap"; sourceTree = "<group>"; };
-		BAE8A3D83F0C7775BFA12E1F97F8C8F5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		BE999E5032707A9895359AF50C9FD923 /* NeatTipView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatTipView.swift; sourceTree = "<group>"; };
-		CB8D3A2399FF309F404C32BF7B40C657 /* Pods-NeatTipView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Example-umbrella.h"; sourceTree = "<group>"; };
-		CE18417385AEB107E9FED166788FEC41 /* Pods-NeatTipView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Tests-umbrella.h"; sourceTree = "<group>"; };
-		D7FB459761D3455287F2648D27039156 /* Pods-NeatTipView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeatTipView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EF7709052FA40072F16FD6661B64D2BA /* NeatTipView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NeatTipView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1FCEE6E84AFB571767ADEC612E90EDC /* Pods-NeatTipView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		F662097325D39CADB1B228831ED60AB8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F76EE4857B6C022FFE74F766E18DCFF3 /* Pods-NeatTipView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Tests-Info.plist"; sourceTree = "<group>"; };
+		32FD9EE0B14BEC5C2826861B58FD2618 /* Pods-NeatTipView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Example-Info.plist"; sourceTree = "<group>"; };
+		379A6CCC0903D3E121B772CF8213533F /* Pods-NeatTipView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		3FC0798E2581C4CC453A8C7573AFEE4E /* NeatTipView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NeatTipView-umbrella.h"; sourceTree = "<group>"; };
+		43FD0AB258154E09547DC334104C7A5F /* NeatTipViewConstraintsInitialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatTipViewConstraintsInitialization.swift; sourceTree = "<group>"; };
+		445E4EBA74C94F1A8952B18BA2EDB8C7 /* Pods-NeatTipView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Tests-dummy.m"; sourceTree = "<group>"; };
+		453148C59FC7F30F9CDE823078904A78 /* NeatTipView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NeatTipView-prefix.pch"; sourceTree = "<group>"; };
+		4A8073A86B1F56044CDF0FC76E32BCA0 /* NeatArrowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatArrowView.swift; sourceTree = "<group>"; };
+		4C9402E2C62C8E5EA6ED55AF67A7D008 /* Pods-NeatTipView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		632FB4D684E7F18F0018E48F2F7DC05A /* NeatTipView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = NeatTipView.modulemap; sourceTree = "<group>"; };
+		72DE8EFA3854170D74445927B75EC745 /* NeatTipView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NeatTipView.framework; path = NeatTipView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0E66C2B31945E081335CEBB53B900C /* Pods-NeatTipView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NeatTipView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		8FB3FEC668DDD02EAA5EA26729DBCDD3 /* NeatTipView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NeatTipView.swift; sourceTree = "<group>"; };
+		93C86AB256C91804CC9F8DA7D630CF7A /* Pods-NeatTipView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9CECD932124A7C011496E0E1720E3285 /* NeatTipView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NeatTipView.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A801468B93B43BD470A1B8E51D00E58E /* NeatTipView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NeatTipView-dummy.m"; sourceTree = "<group>"; };
+		B0CCAF642852EAB47875E38CA30650CB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		B3D143E91313B7813723D60D00B107ED /* Pods-NeatTipView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B3FE1C9D5A30DDCD32C8D13F65F1634F /* AttributedStringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AttributedStringExtension.swift; sourceTree = "<group>"; };
+		BF9F91CCFDA23C3B4A4FFB22C75E17CA /* NeatTipView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "NeatTipView-Info.plist"; sourceTree = "<group>"; };
+		CC8308E32C94790D9A540D4133D56346 /* Pods-NeatTipView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NeatTipView_Example-dummy.m"; sourceTree = "<group>"; };
+		DF6C82BE5A9A92875FDEBFA17A813899 /* Pods-NeatTipView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NeatTipView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E522453C41B140D72DEBBC046261C231 /* Pods_NeatTipView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NeatTipView_Tests.framework; path = "Pods-NeatTipView_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA85E80FAD5B6668212DE820B493FFC5 /* Pods-NeatTipView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NeatTipView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		EE4FD3A34811CDDC052B01869C5A2F65 /* NeatTipView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = NeatTipView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F0F40D4B4E19FC0FDDBE19EC4F24C7F6 /* Pods-NeatTipView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NeatTipView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F43F43A81FB7C8D990488702EC128D32 /* Pods-NeatTipView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NeatTipView_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,19 +88,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BD6B126533DEB4C6538BA1761076E68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5742334C2C52C6CE3C242D7A0B4CCD90 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27868957F02D3B661B09363A86AADC25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7BAD4962A353E2A5186E35782236FDD9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		513F1933A67CED90DD719FF219EA22D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A213BAFF320FA6BC226E7696A5956589 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,100 +110,96 @@
 		0085DEF4D6EEEE8E3962AA7A4E323A07 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				94C69F9ADA7721D30ABF41DD57685208 /* Pods-NeatTipView_Example */,
-				6C155B912A4333CD9BEA83A24E30F332 /* Pods-NeatTipView_Tests */,
+				7A679EC0B7F855973FCEF2CB7B5830F7 /* Pods-NeatTipView_Example */,
+				FD9D1243F160BE0EDFFA88D1938182A7 /* Pods-NeatTipView_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		041B5DD398EDAF25DB660B56161FCDC8 /* Pod */ = {
+		02F8FA86E79D1D0BD60888FF04DABB30 /* NeatTipView */ = {
 			isa = PBXGroup;
 			children = (
-				BAE8A3D83F0C7775BFA12E1F97F8C8F5 /* LICENSE */,
-				46DDF68F9F72E8E1E9B6B346A896EA12 /* NeatTipView.podspec */,
-				F662097325D39CADB1B228831ED60AB8 /* README.md */,
+				94FDF7BB0318B501C21D166713DE1FD2 /* Extensions */,
+				AAE544872F09C9957BE31E686C1F8457 /* Pod */,
+				B6DB8B7BA1D82773C54BE79ACC76D54A /* Preferences */,
+				FF70A01DCBC04B0B19F3E2C61F67821F /* Support Files */,
+				7D3625ED625B11C72BDC02CDB403778B /* View */,
+				ADF941CE12C1C740D62A17D7FB130DC8 /* ViewController */,
+			);
+			name = NeatTipView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		7A679EC0B7F855973FCEF2CB7B5830F7 /* Pods-NeatTipView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				2DE49572C71B7560BA26A0B05FE6537F /* Pods-NeatTipView_Example.modulemap */,
+				DF6C82BE5A9A92875FDEBFA17A813899 /* Pods-NeatTipView_Example-acknowledgements.markdown */,
+				EA85E80FAD5B6668212DE820B493FFC5 /* Pods-NeatTipView_Example-acknowledgements.plist */,
+				CC8308E32C94790D9A540D4133D56346 /* Pods-NeatTipView_Example-dummy.m */,
+				8A0E66C2B31945E081335CEBB53B900C /* Pods-NeatTipView_Example-frameworks.sh */,
+				32FD9EE0B14BEC5C2826861B58FD2618 /* Pods-NeatTipView_Example-Info.plist */,
+				F43F43A81FB7C8D990488702EC128D32 /* Pods-NeatTipView_Example-umbrella.h */,
+				B3D143E91313B7813723D60D00B107ED /* Pods-NeatTipView_Example.debug.xcconfig */,
+				4C9402E2C62C8E5EA6ED55AF67A7D008 /* Pods-NeatTipView_Example.release.xcconfig */,
+			);
+			name = "Pods-NeatTipView_Example";
+			path = "Target Support Files/Pods-NeatTipView_Example";
+			sourceTree = "<group>";
+		};
+		7D3625ED625B11C72BDC02CDB403778B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A8073A86B1F56044CDF0FC76E32BCA0 /* NeatArrowView.swift */,
+			);
+			name = View;
+			path = NeatTipView/Classes/View;
+			sourceTree = "<group>";
+		};
+		840756CDA5FE76797BCAAF52FCC90501 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02F8FA86E79D1D0BD60888FF04DABB30 /* NeatTipView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		94FDF7BB0318B501C21D166713DE1FD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B3FE1C9D5A30DDCD32C8D13F65F1634F /* AttributedStringExtension.swift */,
+			);
+			name = Extensions;
+			path = NeatTipView/Classes/Extensions;
+			sourceTree = "<group>";
+		};
+		AAE544872F09C9957BE31E686C1F8457 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				2CF9B5C00FE01AE4979CD3CEF611507D /* LICENSE */,
+				EE4FD3A34811CDDC052B01869C5A2F65 /* NeatTipView.podspec */,
+				B0CCAF642852EAB47875E38CA30650CB /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		075C31FF22E25240001D2067 /* ViewController */ = {
+		ADF941CE12C1C740D62A17D7FB130DC8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BE999E5032707A9895359AF50C9FD923 /* NeatTipView.swift */,
-				078642E822E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift */,
+				8FB3FEC668DDD02EAA5EA26729DBCDD3 /* NeatTipView.swift */,
+				43FD0AB258154E09547DC334104C7A5F /* NeatTipViewConstraintsInitialization.swift */,
 			);
-			path = ViewController;
+			name = ViewController;
+			path = NeatTipView/Classes/ViewController;
 			sourceTree = "<group>";
 		};
-		075C320022E252D9001D2067 /* Preferences */ = {
+		B6DB8B7BA1D82773C54BE79ACC76D54A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				075C320222E25300001D2067 /* NeatViewPreferences.swift */,
+				06ACEFAE3348A6B09E234AF266E1A9E3 /* NeatViewPreferences.swift */,
 			);
-			path = Preferences;
-			sourceTree = "<group>";
-		};
-		075C320122E252E3001D2067 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				075C31F922E22EDC001D2067 /* NeatArrowView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		07A191C922E8D223008C000C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				073EBE4A22E8D2640027CC8F /* AttributedStringExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		6C155B912A4333CD9BEA83A24E30F332 /* Pods-NeatTipView_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A5892E0FCA05FECE4964D7A11E794CFC /* Pods-NeatTipView_Tests.modulemap */,
-				D7FB459761D3455287F2648D27039156 /* Pods-NeatTipView_Tests-acknowledgements.markdown */,
-				50B84E29A439258311CAFD8FBAE6DFA9 /* Pods-NeatTipView_Tests-acknowledgements.plist */,
-				9FA2762F8B12C0E58A2CDF45F48F68F6 /* Pods-NeatTipView_Tests-dummy.m */,
-				F76EE4857B6C022FFE74F766E18DCFF3 /* Pods-NeatTipView_Tests-Info.plist */,
-				CE18417385AEB107E9FED166788FEC41 /* Pods-NeatTipView_Tests-umbrella.h */,
-				29573F6B66644BBD8461565D16CAD58A /* Pods-NeatTipView_Tests.debug.xcconfig */,
-				9F1E996A2FC562C4DD3AF080FE7E4E7C /* Pods-NeatTipView_Tests.release.xcconfig */,
-			);
-			name = "Pods-NeatTipView_Tests";
-			path = "Target Support Files/Pods-NeatTipView_Tests";
-			sourceTree = "<group>";
-		};
-		78F0AE195460962EA28E3F74CD13ADB8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				05E9EE951C0A4AA7C587B67818065762 /* NeatTipView.modulemap */,
-				2816E3F58A149E2FEA978C151CD9485F /* NeatTipView.xcconfig */,
-				47FD6FCE09708E6ABFF4B19C8470FFB0 /* NeatTipView-dummy.m */,
-				953BDC585B2A65D9BA47A397C6DC28C3 /* NeatTipView-Info.plist */,
-				5CA986ABA21FEAC61E8CDB6319DA7B79 /* NeatTipView-prefix.pch */,
-				67FF80DD88A9D9EBD8C222E7F94E2D99 /* NeatTipView-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/NeatTipView";
-			sourceTree = "<group>";
-		};
-		94C69F9ADA7721D30ABF41DD57685208 /* Pods-NeatTipView_Example */ = {
-			isa = PBXGroup;
-			children = (
-				7C7C6A026A262B42CF9EB8CB7994C0FE /* Pods-NeatTipView_Example.modulemap */,
-				9C5AAA8B8E1C9C8477387135C0213861 /* Pods-NeatTipView_Example-acknowledgements.markdown */,
-				0C08DE34882B7727A24860C733F1714C /* Pods-NeatTipView_Example-acknowledgements.plist */,
-				1BF0BC9BA9BD845E807ED50EC520A7A0 /* Pods-NeatTipView_Example-dummy.m */,
-				602E1D04C8401857B5F702D1687B8305 /* Pods-NeatTipView_Example-frameworks.sh */,
-				39F282D65EBD1AE4D4A3301393144518 /* Pods-NeatTipView_Example-Info.plist */,
-				CB8D3A2399FF309F404C32BF7B40C657 /* Pods-NeatTipView_Example-umbrella.h */,
-				F1FCEE6E84AFB571767ADEC612E90EDC /* Pods-NeatTipView_Example.debug.xcconfig */,
-				04C4D29CC82BE63F307778AF5095C19F /* Pods-NeatTipView_Example.release.xcconfig */,
-			);
-			name = "Pods-NeatTipView_Example";
-			path = "Target Support Files/Pods-NeatTipView_Example";
+			name = Preferences;
+			path = NeatTipView/Classes/Preferences;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -218,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D649F9700A342C4EDEA791E54B524166 /* Development Pods */,
+				840756CDA5FE76797BCAAF52FCC90501 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				DDEE31656643E1955338D912E61C749B /* Products */,
 				0085DEF4D6EEEE8E3962AA7A4E323A07 /* Targets Support Files */,
@@ -233,36 +229,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D649F9700A342C4EDEA791E54B524166 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F68993584B767D9330930F81B90E7D64 /* NeatTipView */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		DDEE31656643E1955338D912E61C749B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EF7709052FA40072F16FD6661B64D2BA /* NeatTipView.framework */,
-				85749ECF2E6FA4FE9C434CDC65FC1761 /* Pods_NeatTipView_Example.framework */,
-				56BF33F0788A312240C3208B4E01EFE1 /* Pods_NeatTipView_Tests.framework */,
+				72DE8EFA3854170D74445927B75EC745 /* NeatTipView.framework */,
+				15C16820EC517DA5DC457A8DE8F96D3C /* Pods_NeatTipView_Example.framework */,
+				E522453C41B140D72DEBBC046261C231 /* Pods_NeatTipView_Tests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F68993584B767D9330930F81B90E7D64 /* NeatTipView */ = {
+		FD9D1243F160BE0EDFFA88D1938182A7 /* Pods-NeatTipView_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				07A191C922E8D223008C000C /* Extensions */,
-				075C320122E252E3001D2067 /* View */,
-				075C320022E252D9001D2067 /* Preferences */,
-				075C31FF22E25240001D2067 /* ViewController */,
-				041B5DD398EDAF25DB660B56161FCDC8 /* Pod */,
-				78F0AE195460962EA28E3F74CD13ADB8 /* Support Files */,
+				1E2D8B0EF9111655343F837722504B10 /* Pods-NeatTipView_Tests.modulemap */,
+				1CE34242796FC824CACCC271A947CD99 /* Pods-NeatTipView_Tests-acknowledgements.markdown */,
+				93C86AB256C91804CC9F8DA7D630CF7A /* Pods-NeatTipView_Tests-acknowledgements.plist */,
+				445E4EBA74C94F1A8952B18BA2EDB8C7 /* Pods-NeatTipView_Tests-dummy.m */,
+				311C5265A5EFB182C9CA4C64CA7B4346 /* Pods-NeatTipView_Tests-Info.plist */,
+				379A6CCC0903D3E121B772CF8213533F /* Pods-NeatTipView_Tests-umbrella.h */,
+				2B53D0E946957C7956A553AAD31CE1B7 /* Pods-NeatTipView_Tests.debug.xcconfig */,
+				F0F40D4B4E19FC0FDDBE19EC4F24C7F6 /* Pods-NeatTipView_Tests.release.xcconfig */,
 			);
-			name = NeatTipView;
-			path = ../..;
+			name = "Pods-NeatTipView_Tests";
+			path = "Target Support Files/Pods-NeatTipView_Tests";
+			sourceTree = "<group>";
+		};
+		FF70A01DCBC04B0B19F3E2C61F67821F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				632FB4D684E7F18F0018E48F2F7DC05A /* NeatTipView.modulemap */,
+				9CECD932124A7C011496E0E1720E3285 /* NeatTipView.xcconfig */,
+				A801468B93B43BD470A1B8E51D00E58E /* NeatTipView-dummy.m */,
+				BF9F91CCFDA23C3B4A4FFB22C75E17CA /* NeatTipView-Info.plist */,
+				453148C59FC7F30F9CDE823078904A78 /* NeatTipView-prefix.pch */,
+				3FC0798E2581C4CC453A8C7573AFEE4E /* NeatTipView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/NeatTipView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +280,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A5B13E3E7E3315E11460E85DA4A483C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3764E2157728097F3EDB2821E1A7D722 /* NeatTipView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93C9627010B35502D05C1AD487E2FD84 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,37 +296,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC562A33950F5EAC84CB84C05CB8C604 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8170AF0717517E9DE6F8B51B7B514D7B /* NeatTipView-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3EAE65D87973D9378FB665F9CAA808D4 /* Pods-NeatTipView_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 07D296C0CCD20A73454D9AFC44877490 /* Build configuration list for PBXNativeTarget "Pods-NeatTipView_Tests" */;
-			buildPhases = (
-				93C9627010B35502D05C1AD487E2FD84 /* Headers */,
-				C1C104834C0EAE7FFC0A683E541987D9 /* Sources */,
-				00188452B39986A8C58F5C05E4E36169 /* Frameworks */,
-				5A2BC215E0955CACCD6C4518DAC89621 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F5F0E3D75679DB4846A933D0F37FBDD7 /* PBXTargetDependency */,
-			);
-			name = "Pods-NeatTipView_Tests";
-			productName = "Pods-NeatTipView_Tests";
-			productReference = 56BF33F0788A312240C3208B4E01EFE1 /* Pods_NeatTipView_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		652E84968472EFE5C8D6C4EE58533307 /* Pods-NeatTipView_Example */ = {
+		18029CA1B39C5F8FA24E46AB85EB1414 /* Pods-NeatTipView_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50B684B3670CD596B919D21469549F89 /* Build configuration list for PBXNativeTarget "Pods-NeatTipView_Example" */;
 			buildPhases = (
@@ -330,17 +315,36 @@
 			);
 			name = "Pods-NeatTipView_Example";
 			productName = "Pods-NeatTipView_Example";
-			productReference = 85749ECF2E6FA4FE9C434CDC65FC1761 /* Pods_NeatTipView_Example.framework */;
+			productReference = 15C16820EC517DA5DC457A8DE8F96D3C /* Pods_NeatTipView_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		81BA65E52C4EE77C88CDA48B5DE0C023 /* NeatTipView */ = {
+		7675BBBD38873F418D39F75D3F9EC30C /* Pods-NeatTipView_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B6C6F1647DA7CC85D03E47BF6B6921B /* Build configuration list for PBXNativeTarget "NeatTipView" */;
+			buildConfigurationList = 07D296C0CCD20A73454D9AFC44877490 /* Build configuration list for PBXNativeTarget "Pods-NeatTipView_Tests" */;
 			buildPhases = (
-				BC562A33950F5EAC84CB84C05CB8C604 /* Headers */,
-				C404F43D35C2E95EF29E8175F0FDA6A3 /* Sources */,
-				513F1933A67CED90DD719FF219EA22D3 /* Frameworks */,
-				4921C2CB151B784E3174DFD63D85C12E /* Resources */,
+				93C9627010B35502D05C1AD487E2FD84 /* Headers */,
+				C1C104834C0EAE7FFC0A683E541987D9 /* Sources */,
+				00188452B39986A8C58F5C05E4E36169 /* Frameworks */,
+				5A2BC215E0955CACCD6C4518DAC89621 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5F0E3D75679DB4846A933D0F37FBDD7 /* PBXTargetDependency */,
+			);
+			name = "Pods-NeatTipView_Tests";
+			productName = "Pods-NeatTipView_Tests";
+			productReference = E522453C41B140D72DEBBC046261C231 /* Pods_NeatTipView_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		790C06FAEE7CAAD458CDD8B2EBCA9B81 /* NeatTipView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 670D4B7BCB847140A27DB5EE9240BDB1 /* Build configuration list for PBXNativeTarget "NeatTipView" */;
+			buildPhases = (
+				3A5B13E3E7E3315E11460E85DA4A483C /* Headers */,
+				51A5C79738860B888E1B28A527498006 /* Sources */,
+				1BD6B126533DEB4C6538BA1761076E68 /* Frameworks */,
+				756A81F2151FD91C24C6FD16468CB123 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -348,7 +352,7 @@
 			);
 			name = NeatTipView;
 			productName = NeatTipView;
-			productReference = EF7709052FA40072F16FD6661B64D2BA /* NeatTipView.framework */;
+			productReference = 72DE8EFA3854170D74445927B75EC745 /* NeatTipView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -359,11 +363,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				TargetAttributes = {
-					81BA65E52C4EE77C88CDA48B5DE0C023 = {
-						LastSwiftMigration = 1020;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -377,22 +376,15 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81BA65E52C4EE77C88CDA48B5DE0C023 /* NeatTipView */,
-				652E84968472EFE5C8D6C4EE58533307 /* Pods-NeatTipView_Example */,
-				3EAE65D87973D9378FB665F9CAA808D4 /* Pods-NeatTipView_Tests */,
+				790C06FAEE7CAAD458CDD8B2EBCA9B81 /* NeatTipView */,
+				18029CA1B39C5F8FA24E46AB85EB1414 /* Pods-NeatTipView_Example */,
+				7675BBBD38873F418D39F75D3F9EC30C /* Pods-NeatTipView_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00C7F5BBD68F1906998B92990D4C7E52 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4921C2CB151B784E3174DFD63D85C12E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,9 +398,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		756A81F2151FD91C24C6FD16468CB123 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		51A5C79738860B888E1B28A527498006 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA3909E97471A733ACC8DEFCDCA07199 /* AttributedStringExtension.swift in Sources */,
+				3A12228C773A57593EEB0C8061944831 /* NeatArrowView.swift in Sources */,
+				8921A4949CCC23566A303A1C86FDB1DC /* NeatTipView-dummy.m in Sources */,
+				1E09A686D0FBFF65520DDCF210DB24A0 /* NeatTipView.swift in Sources */,
+				2BEDA8E09B1F093C0E5239687AA41765 /* NeatTipViewConstraintsInitialization.swift in Sources */,
+				31409B082AAB9D7AC511E07651606DF5 /* NeatViewPreferences.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B506192F3EA3B458D9E41CB2F2DFE245 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -425,172 +437,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C404F43D35C2E95EF29E8175F0FDA6A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				073EBE4B22E8D2640027CC8F /* AttributedStringExtension.swift in Sources */,
-				075C31FA22E22EDC001D2067 /* NeatArrowView.swift in Sources */,
-				078642E922E65E420027BF11 /* NeatTipViewConstraintsInitialization.swift in Sources */,
-				075C320322E25300001D2067 /* NeatViewPreferences.swift in Sources */,
-				2AAFA3AC36156251C039445A43450ABD /* NeatTipView-dummy.m in Sources */,
-				A5DE66FE88D48F60487C7C44F48805B2 /* NeatTipView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		251C254D1C73A10748A159BC21ADA06C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NeatTipView;
-			target = 81BA65E52C4EE77C88CDA48B5DE0C023 /* NeatTipView */;
+			target = 790C06FAEE7CAAD458CDD8B2EBCA9B81 /* NeatTipView */;
 			targetProxy = 1082674199E43CB09B100CE537768F73 /* PBXContainerItemProxy */;
 		};
 		F5F0E3D75679DB4846A933D0F37FBDD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-NeatTipView_Example";
-			target = 652E84968472EFE5C8D6C4EE58533307 /* Pods-NeatTipView_Example */;
+			target = 18029CA1B39C5F8FA24E46AB85EB1414 /* Pods-NeatTipView_Example */;
 			targetProxy = 8BA264E2CEBBC4405937C24288CBBFEB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1BD0DD63B8839C2EB44EE56C4E88DF0B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1FCEE6E84AFB571767ADEC612E90EDC /* Pods-NeatTipView_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		69FC02EA2130E4AF17AEF5B7E8958B40 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F1E996A2FC562C4DD3AF080FE7E4E7C /* Pods-NeatTipView_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7F365B8D7F2188057F939FAA07CAA3F9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2816E3F58A149E2FEA978C151CD9485F /* NeatTipView.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
-				PRODUCT_MODULE_NAME = NeatTipView;
-				PRODUCT_NAME = NeatTipView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8F1F76D59AE5A3D68509A3CF49E4419F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04C4D29CC82BE63F307778AF5095C19F /* Pods-NeatTipView_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+		257497152829C177993B5EC99C1D227A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -638,18 +503,228 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+		524AA47E6983E6E318F8B99CBF5F61C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B53D0E946957C7956A553AAD31CE1B7 /* Pods-NeatTipView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		63929CE026B8701A64037D5DAE5B4CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CECD932124A7C011496E0E1720E3285 /* NeatTipView.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
+				PRODUCT_MODULE_NAME = NeatTipView;
+				PRODUCT_NAME = NeatTipView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6939A2BF424E6F1BBFAF7872FB279E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3D143E91313B7813723D60D00B107ED /* Pods-NeatTipView_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		69B4CF4AC6CCF0E4C7078A0FF7AD1D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C9402E2C62C8E5EA6ED55AF67A7D008 /* Pods-NeatTipView_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		988A36F20931C2A79B2D7333C662D9CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0F40D4B4E19FC0FDDBE19EC4F24C7F6 /* Pods-NeatTipView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B102C7BF6E49E478A15B5EB62EF421F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CECD932124A7C011496E0E1720E3285 /* NeatTipView.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
+				PRODUCT_MODULE_NAME = NeatTipView;
+				PRODUCT_NAME = NeatTipView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DD8F832993327D1DD8046C3CBCBD97CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -700,7 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -713,79 +788,14 @@
 			};
 			name = Debug;
 		};
-		E72D206DE8618C1DA5A2F27F7D0892C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2816E3F58A149E2FEA978C151CD9485F /* NeatTipView.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/NeatTipView/NeatTipView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/NeatTipView/NeatTipView-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/NeatTipView/NeatTipView.modulemap";
-				PRODUCT_MODULE_NAME = NeatTipView;
-				PRODUCT_NAME = NeatTipView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F7644E5DA5A8D3FA447D394145EE955C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29573F6B66644BBD8461565D16CAD58A /* Pods-NeatTipView_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		07D296C0CCD20A73454D9AFC44877490 /* Build configuration list for PBXNativeTarget "Pods-NeatTipView_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F7644E5DA5A8D3FA447D394145EE955C /* Debug */,
-				69FC02EA2130E4AF17AEF5B7E8958B40 /* Release */,
+				524AA47E6983E6E318F8B99CBF5F61C2 /* Debug */,
+				988A36F20931C2A79B2D7333C662D9CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -793,17 +803,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
-				B0087CB4594321EF41619F3181FE120E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4B6C6F1647DA7CC85D03E47BF6B6921B /* Build configuration list for PBXNativeTarget "NeatTipView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E72D206DE8618C1DA5A2F27F7D0892C9 /* Debug */,
-				7F365B8D7F2188057F939FAA07CAA3F9 /* Release */,
+				DD8F832993327D1DD8046C3CBCBD97CD /* Debug */,
+				257497152829C177993B5EC99C1D227A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -811,8 +812,17 @@
 		50B684B3670CD596B919D21469549F89 /* Build configuration list for PBXNativeTarget "Pods-NeatTipView_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BD0DD63B8839C2EB44EE56C4E88DF0B /* Debug */,
-				8F1F76D59AE5A3D68509A3CF49E4419F /* Release */,
+				6939A2BF424E6F1BBFAF7872FB279E59 /* Debug */,
+				69B4CF4AC6CCF0E4C7078A0FF7AD1D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		670D4B7BCB847140A27DB5EE9240BDB1 /* Build configuration list for PBXNativeTarget "NeatTipView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B102C7BF6E49E478A15B5EB62EF421F9 /* Debug */,
+				63929CE026B8701A64037D5DAE5B4CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

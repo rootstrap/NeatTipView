@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		075C31FB22E22FDA001D2067 /* NeatExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeatExampleViewController.swift; sourceTree = "<group>"; };
 		075C31FD22E23935001D2067 /* MutableAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableAttributedStringExtension.swift; sourceTree = "<group>"; };
-		1B318E625D12D11BCD7C0B49 /* NeatTipView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NeatTipView.podspec; path = ../NeatTipView.podspec; sourceTree = "<group>"; };
+		1B318E625D12D11BCD7C0B49 /* NeatTipView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NeatTipView.podspec; path = ../NeatTipView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2A083947C0F734015B083ED5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		55B9F9B33953305A688DD241 /* Pods-NeatTipView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeatTipView_Tests.release.xcconfig"; path = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* NeatTipView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeatTipView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,7 +173,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				684128890DA299EDEE5FFFB6 /* [CP] Embed Pods Frameworks */,
+				92A7741058CEBED19CE12D8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,20 +287,16 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		684128890DA299EDEE5FFFB6 /* [CP] Embed Pods Frameworks */ = {
+		92A7741058CEBED19CE12D8D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NeatTipView/NeatTipView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NeatTipView.framework",
 			);

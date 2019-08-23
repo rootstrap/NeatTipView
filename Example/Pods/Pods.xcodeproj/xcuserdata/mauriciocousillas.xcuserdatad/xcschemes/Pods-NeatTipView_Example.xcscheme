@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81BA65E52C4EE77C88CDA48B5DE0C023"
-               BuildableName = "NeatTipView.framework"
-               BlueprintName = "NeatTipView"
+               BlueprintIdentifier = "18029CA1B39C5F8FA24E46AB85EB1414"
+               BuildableName = "Pods_NeatTipView_Example.framework"
+               BlueprintName = "Pods-NeatTipView_Example"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "81BA65E52C4EE77C88CDA48B5DE0C023"
-            BuildableName = "NeatTipView.framework"
-            BlueprintName = "NeatTipView"
+            BlueprintIdentifier = "18029CA1B39C5F8FA24E46AB85EB1414"
+            BuildableName = "Pods_NeatTipView_Example.framework"
+            BlueprintName = "Pods-NeatTipView_Example"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
