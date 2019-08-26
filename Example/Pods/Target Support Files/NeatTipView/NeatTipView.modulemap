@@ -1,6 +1,0 @@
-framework module NeatTipView {
-  umbrella header "NeatTipView-umbrella.h"
-
-  export *
-  module * { export * }
-}
