@@ -11,6 +11,7 @@ import UIKit
 struct Constants {
   static let screenWidth = UIScreen.main.bounds.width
   static let screenHeight = UIScreen.main.bounds.height
+  static let animationOffset: CGFloat = 200
 }
 
 public class NeatTipView: UIView {
@@ -119,7 +120,10 @@ public class NeatTipView: UIView {
 
     UIView.animate(
       withDuration: animationPreferences.animationDuration,
+      delay: 0,
+      options: animationPreferences.animationCurve,
       animations: { [weak self] in
+        self?.animateAppearance()
         self?.layoutIfNeeded()
       }
     )
@@ -159,8 +163,10 @@ public class NeatTipView: UIView {
   func dismissTip() {
     UIView.animate(
       withDuration: animationPreferences.animationDuration,
+      delay: 0,
+      options: animationPreferences.animationCurve,
       animations: { [weak self] in
-        self?.alpha = 0
+        self?.animateDissaprearance()
       },
       completion: { [weak self] _ in
         self?.removeFromSuperview()
@@ -186,5 +192,36 @@ public class NeatTipView: UIView {
     constraints.append(contentsOf: bubbleConstraints)
 
     NSLayoutConstraint.activate(constraints)
+  }
+
+  private func animateAppearance() {
+    switch animationPreferences.appearanceAnimationType {
+    case .fromLeft:
+      bubbleView.frame.origin.x += animationPreferences.animationOffset
+    case .fromRight:
+      bubbleView.frame.origin.x -= animationPreferences.animationOffset
+    case .fromTop:
+      bubbleView.frame.origin.y += animationPreferences.animationOffset
+    case .fromBottom:
+      bubbleView.frame.origin.y -= animationPreferences.animationOffset
+    case .fadeIn:
+      break
+    }
+  }
+
+  private func animateDissapearance() {
+    alpha = 0
+    switch animationPreferences.disappearanceAnimationType {
+    case .toLeft:
+      bubbleView.frame.origin.x -= animationPreferences.animationOffset
+    case .toRight:
+      bubbleView.frame.origin.x += animationPreferences.animationOffset
+    case .toTop:
+      bubbleView.frame.origin.y -= animationPreferences.animationOffset
+    case .toBottom:
+      bubbleView.frame.origin.y += animationPreferences.animationOffset
+    case .fadeOut:
+      break
+    }
   }
 }

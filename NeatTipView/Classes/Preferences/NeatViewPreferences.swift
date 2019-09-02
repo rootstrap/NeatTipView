@@ -44,6 +44,8 @@ public struct NeatLayoutPreferences {
 
 public struct NeatAnimationPreferences {
   public var animationDuration: TimeInterval = 0.3
+  public var animationCurve: UIView.AnimationOptions = .curveEaseInOut
+  public var animationOffset: CGFloat = Constants.animationOffset
   public var appearanceAnimationType: AppearanceAnimationType = .fromBottom
   public var disappearanceAnimationType: DisappearanceAnimationType = .toBottom
   
