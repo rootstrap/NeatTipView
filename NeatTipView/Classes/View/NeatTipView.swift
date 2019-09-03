@@ -17,7 +17,7 @@ struct Constants {
 public class NeatTipView: UIView {
   public var arrowPosition: ArrowPosition
   public var preferences: NeatViewPreferences
-  public var parentView: UIView
+  public weak var parentView: UIView?
 
   var layoutPreferences: NeatLayoutPreferences {
     return preferences.layoutPreferences
@@ -105,6 +105,9 @@ public class NeatTipView: UIView {
 
   public func show() {
     translatesAutoresizingMaskIntoConstraints = false
+
+    guard let parentView = parentView else { return }
+
     parentView.addSubview(self)
 
     var constraints = [
