@@ -8,7 +8,6 @@
 import UIKit
 
 public class NeatBubbleView: UIView {
-  public var centerPoint: CGPoint
   public var preferences: NeatViewPreferences
   public var attributedString: NSAttributedString
   private var activeConstraints: [NSLayoutConstraint] = []
@@ -19,6 +18,13 @@ public class NeatBubbleView: UIView {
 
   var stylePreferences: NeatBubbleStylePreferences {
     return preferences.bubbleStylePreferences
+  }
+
+  public var centerPoint: CGPoint {
+    didSet {
+      setNeedsDisplay()
+      layoutIfNeeded()
+    }
   }
 
   public var arrowPosition: ArrowPosition {

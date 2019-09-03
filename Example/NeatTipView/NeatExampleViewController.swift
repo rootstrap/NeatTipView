@@ -39,6 +39,10 @@ class NeatExampleViewController: UIViewController {
     showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
   }
   
+  @IBAction func attachToButtonTapped(_ sender: UIButton) {
+    NeatTipView.attach(to: sender, in: view, with: attributedString(), arrowPosition: .top)
+  }
+
   func showTipView(with preferences: NeatViewPreferences,
                    center: CGPoint,
                    arrowPosition: ArrowPosition) {
