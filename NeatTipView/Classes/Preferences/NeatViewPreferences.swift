@@ -10,8 +10,21 @@ import Foundation
 public struct NeatViewPreferences {
   public var layoutPreferences = NeatLayoutPreferences()
   public var animationPreferences = NeatAnimationPreferences()
+  public var bubbleStylePreferences = NeatBubbleStylePreferences()
+  public var overlayStylePreferences = NeatOverlayStylePreferences()
   
   public init() { }
+}
+
+public struct NeatBubbleStylePreferences {
+  public var backgroundColor: UIColor = .white
+  public var borderWidth: CGFloat = 3
+  public var borderColor: UIColor = .lightGray
+  public var cornerRadius: CGFloat = 8
+}
+
+public struct NeatOverlayStylePreferences {
+  public var backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.55)
 }
 
 public enum AppearanceAnimationType {

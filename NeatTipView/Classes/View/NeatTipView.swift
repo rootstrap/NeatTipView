@@ -27,6 +27,10 @@ public class NeatTipView: UIView {
     return preferences.animationPreferences
   }
 
+  var overlayPreferences: NeatOverlayStylePreferences {
+    return preferences.overlayStylePreferences
+  }
+
   //MARK: Views initialization
 
   var bubbleView: NeatBubbleView
@@ -34,7 +38,7 @@ public class NeatTipView: UIView {
   lazy var backgroundView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+    view.backgroundColor = overlayPreferences.backgroundColor
     view.alpha = 0
 
     return view
@@ -166,7 +170,7 @@ public class NeatTipView: UIView {
       delay: 0,
       options: animationPreferences.animationCurve,
       animations: { [weak self] in
-        self?.animateDissaprearance()
+        self?.animateDissapearance()
       },
       completion: { [weak self] _ in
         self?.removeFromSuperview()

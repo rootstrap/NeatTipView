@@ -21,6 +21,8 @@ struct NeatArrowPath {
 
   let frame: CGRect
 
+  let borderOffset: CGFloat
+
   var path: UIBezierPath {
     let path = UIBezierPath()
 
@@ -53,16 +55,17 @@ struct NeatArrowPath {
     let initialX = max(center.x - frame.origin.x - (width / 2), minBounds)
     let midX = center.x - frame.origin.x
     let finalX = midX + (width / 2)
-    return [CGPoint(x: initialX, y: height),
+    let initialY = height + borderOffset
+    return [CGPoint(x: initialX, y: initialY),
             CGPoint(x: midX, y: 0),
-            CGPoint(x: finalX, y: height)]
+            CGPoint(x: finalX, y: initialY)]
   }
 
   var bottomDrawingPoints: [CGPoint] {
     let initialX = max(center.x - frame.origin.x - (width / 2), minBounds)
     let midX = initialX + (width / 2)
     let finalX = initialX + width
-    let endY = frame.height - height
+    let endY = frame.height - height - borderOffset
     return [CGPoint(x: initialX, y: endY),
             CGPoint(x: midX, y: frame.height),
             CGPoint(x: finalX, y: endY)]
@@ -72,16 +75,17 @@ struct NeatArrowPath {
     let initialY = max(center.y - (width / 2) - frame.origin.y, minBounds)
     let midY = initialY + (width / 2)
     let finalY = initialY + width
-    return [CGPoint(x: height, y: initialY),
+    let initialX = height + borderOffset
+    return [CGPoint(x: initialX, y: initialY),
             CGPoint(x: 0, y: midY),
-            CGPoint(x: height, y: finalY)]
+            CGPoint(x: initialX, y: finalY)]
   }
 
   var rightDrawingPoints: [CGPoint] {
     let initialY = max(center.y - (width / 2) - frame.origin.y, minBounds)
     let midY = initialY + (width / 2)
     let finalY = initialY + width
-    let endX = frame.width - height
+    let endX = frame.width - height - borderOffset
     return [CGPoint(x: endX, y: initialY),
             CGPoint(x: frame.width, y: midY),
             CGPoint(x: endX, y: finalY)]

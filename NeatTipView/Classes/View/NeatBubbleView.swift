@@ -17,8 +17,8 @@ public class NeatBubbleView: UIView {
     return preferences.layoutPreferences
   }
 
-  var animationPreferences: NeatAnimationPreferences {
-    return preferences.animationPreferences
+  var stylePreferences: NeatBubbleStylePreferences {
+    return preferences.bubbleStylePreferences
   }
 
   public var arrowPosition: ArrowPosition {
@@ -33,9 +33,8 @@ public class NeatBubbleView: UIView {
   lazy var contentContainerView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = .white
-    view.layer.masksToBounds = true
     view.backgroundColor = .clear
+    view.layer.masksToBounds = false
 
     return view
   }()
@@ -86,16 +85,28 @@ public class NeatBubbleView: UIView {
       center: centerPoint,
       width: layoutPreferences.arrowWidth,
       height: layoutPreferences.arrowHeight,
-      frame: frame
+      frame: frame,
+      borderOffset: stylePreferences.borderWidth
     ).path
 
-    UIColor.white.setFill()
-    UIColor.white.setStroke()
+    let path = UIBezierPath(
+      roundedRect: contentContainerView.frame.insetBy(
+        dx: stylePreferences.borderWidth,
+        dy: stylePreferences.borderWidth
+      ),
+      cornerRadius: preferences.bubbleStylePreferences.cornerRadius
+    )
 
-    arrowPath.append(UIBezierPath(roundedRect: contentContainerView.frame, cornerRadius: 8))
+    stylePreferences.backgroundColor.setFill()
+    stylePreferences.borderColor.setStroke()
+    path.lineWidth = stylePreferences.borderWidth
 
-    arrowPath.fill()
-    arrowPath.stroke()
+    path.append(arrowPath)
+
+    path.close()
+    path.stroke()
+    path.fill()
+
   }
 
   private func setupViews() {
