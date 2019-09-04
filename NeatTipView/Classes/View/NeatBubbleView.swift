@@ -80,6 +80,14 @@ public class NeatBubbleView: UIView {
 
   override public func draw(_ rect: CGRect) {
     super.draw(rect)
+
+    layer.shadowColor = stylePreferences.shadowColor.cgColor
+    layer.shadowOffset = stylePreferences.shadowOffset
+    layer.shadowRadius = stylePreferences.shadowRadius
+    layer.shadowOpacity = stylePreferences.shadowOpacity
+
+    layer.masksToBounds = false
+    
     let arrowPath = NeatArrowPath(
       position: arrowPosition,
       center: centerPoint,
@@ -106,7 +114,6 @@ public class NeatBubbleView: UIView {
     path.close()
     path.stroke()
     path.fill()
-
   }
 
   private func setupViews() {

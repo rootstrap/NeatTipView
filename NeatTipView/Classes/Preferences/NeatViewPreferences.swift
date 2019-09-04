@@ -21,6 +21,10 @@ public struct NeatBubbleStylePreferences {
   public var borderWidth: CGFloat = 3
   public var borderColor: UIColor = .lightGray
   public var cornerRadius: CGFloat = 8
+  public var shadowColor: UIColor = .black
+  public var shadowOffset = CGSize(width: 0, height: 5)
+  public var shadowRadius: CGFloat = 5
+  public var shadowOpacity: Float = 0.25
 }
 
 public struct NeatOverlayStylePreferences {
