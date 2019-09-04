@@ -14,9 +14,16 @@ struct Constants {
   static let animationOffset: CGFloat = 200
 }
 
+/**
+ NeatTipView is in charge of presenting the content to the user.
+ Handles layout calculations and appearance/dissapearance animations.
+*/
 public class NeatTipView: UIView {
+  /// Arrow's position.
   public var arrowPosition: ArrowPosition
+  /// Configuration preferences.
   public var preferences: NeatViewPreferences
+  /// The view that will contain this view as a child.
   public weak var parentView: UIView?
 
   var layoutPreferences: NeatLayoutPreferences {
@@ -35,6 +42,7 @@ public class NeatTipView: UIView {
 
   var bubbleView: NeatBubbleView
 
+  /// Background overlay, customizable using `overlayStylePreferences`
   lazy var backgroundView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,9 +53,10 @@ public class NeatTipView: UIView {
   }()
 
   //MARK: constraints initialization
-
+  /// Bubble's constraints to it's superview.
   lazy var bubbleConstraints: [NSLayoutConstraint] = createBubbleConstraints()
 
+  /// Bottom distance defines bottom positioning using the center point as a reference.
   var bubbleDistanceFromBottom: CGFloat {
     //for initial constraints the bound is zero for smoother animations assume the superview is as big as the screen
     let viewHeight = bounds.height == 0 ? Constants.screenHeight : bounds.height
@@ -55,11 +64,13 @@ public class NeatTipView: UIView {
       layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
   }
 
+  /// Top distance defines top positioning using the center point as a reference.
   var bubbleDistanceFromTop: CGFloat {
     return bubbleView.centerPoint.y + layoutPreferences.arrowHeight +
       layoutPreferences.verticalInsets
   }
 
+  /// Defines Y axis centering using content size and the center point.
   var verticalCenterBubbleConstraint: NSLayoutConstraint {
     let availableWidth = bubbleView.centerPoint.x -
       (layoutPreferences.horizontalInsets + layoutPreferences.contentHorizontalInsets) * 2 -
@@ -103,6 +114,7 @@ public class NeatTipView: UIView {
     configureViews()
   }
 
+  /// Presents the view inside it's parent, animated.
   public func show() {
     translatesAutoresizingMaskIntoConstraints = false
 
@@ -136,6 +148,10 @@ public class NeatTipView: UIView {
     )
   }
 
+  /**
+    Convenience helper used to create and present a tip in one single call.
+    Returns a reference to the created tip.
+  */
   @discardableResult
   public static func attach(
     to sibling: UIView,
@@ -186,7 +202,7 @@ public class NeatTipView: UIView {
   }
 
   //MARK: Views configuration
-
+  /// View setup
   private func configureViews() {
     addSubviews()
     activateConstraints()
@@ -196,13 +212,14 @@ public class NeatTipView: UIView {
   private func addDismissGesture() {
     let tapGesture = UITapGestureRecognizer(
       target: self,
-      action: #selector(dismissTip)
+      action: #selector(dismiss)
     )
     addGestureRecognizer(tapGesture)
   }
 
+  /// Dismiss the tip and removes it from it's parent view hierarchy.
   @objc
-  func dismissTip() {
+  func dismiss() {
     UIView.animate(
       withDuration: animationPreferences.animationDuration,
       delay: 0,

@@ -8,21 +8,34 @@
 
 import UIKit
 
+/**
+ NeatArrowPath helper used to store and calculate the actual arrow path.
+*/
 struct NeatArrowPath {
+  /// Minimum distance to the edge of the frame so the arrow does not clip the view.
   let minBounds: CGFloat = 8
 
+  /// The arrow position.
   let position: ArrowPosition
 
+  /// The center point used to start drawing.
   let center: CGPoint
 
+  /// The width of the arrow.
   let width: CGFloat
 
+  /// The height of the arrow
   let height: CGFloat
 
+  /// The containing frame where the arrow will be drawn.
   let frame: CGRect
 
+  /// The offset created by stroking a border (needed to offset the path so it merges with the bubble)
   let borderOffset: CGFloat
 
+  /**
+   Returns an instance of UIBezierPath that has the shape and position of the arrow.
+  */
   var path: UIBezierPath {
     let path = UIBezierPath()
 
@@ -38,6 +51,7 @@ struct NeatArrowPath {
     return path
   }
 
+  /// Returns the drawing point for a specific position
   var drawingPoints: [CGPoint] {
     switch position {
     case .top:

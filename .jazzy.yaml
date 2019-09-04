@@ -1,0 +1,4 @@
+exclude:
+  - Example/*
+module: NeatTipView
+podspec: NeatTipView.podspec

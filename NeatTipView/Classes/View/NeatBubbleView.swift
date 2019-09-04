@@ -7,9 +7,17 @@
 
 import UIKit
 
+/**
+ NeatBubbleView renders the actual tooltip using the defined preferences and string.
+ You can use this view without depending on `NeatTipView` if you need something custom,
+ or you don't want a full-screen overlay.
+*/
 public class NeatBubbleView: UIView {
+  /// Configuration preferences.
   public var preferences: NeatViewPreferences
+  /// The string to be displayed
   public var attributedString: NSAttributedString
+  /// Active constraints for the content of the bubble.
   private var activeConstraints: [NSLayoutConstraint] = []
 
   var layoutPreferences: NeatLayoutPreferences {
@@ -20,6 +28,7 @@ public class NeatBubbleView: UIView {
     return preferences.bubbleStylePreferences
   }
 
+  /// Point used to center the tip of the bubble's arrow. Redraws if changed.
   public var centerPoint: CGPoint {
     didSet {
       setNeedsDisplay()
@@ -27,6 +36,7 @@ public class NeatBubbleView: UIView {
     }
   }
 
+  /// Arrow's position. Re-calculates layout constraints if changed.
   public var arrowPosition: ArrowPosition {
     didSet {
       clearConstraints()
@@ -36,6 +46,7 @@ public class NeatBubbleView: UIView {
     }
   }
 
+  /// Wrapper view used to contain the actual content displayed by the user.
   lazy var contentContainerView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +56,7 @@ public class NeatBubbleView: UIView {
     return view
   }()
 
+  /// Label used to render the actual attributed string.
   lazy var label: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
@@ -55,7 +67,7 @@ public class NeatBubbleView: UIView {
     return label
   }()
 
-
+  /// Programatic view initialization
   public init(
     with centerPoint: CGPoint,
     message attributedString: NSAttributedString,
@@ -74,6 +86,7 @@ public class NeatBubbleView: UIView {
     setupViews()
   }
 
+  /// View intialization called when using xibs with sane defaults.
   required init?(coder aDecoder: NSCoder) {
     arrowPosition = .bottom
     preferences = NeatViewPreferences()
@@ -122,12 +135,14 @@ public class NeatBubbleView: UIView {
     path.fill()
   }
 
+  /// View setup.
   private func setupViews() {
     addSubview(contentContainerView)
     contentContainerView.addSubview(label)
     activateConstraints()
   }
 
+  /// Constraints setup.
   private func activateConstraints() {
     activeConstraints = [
       contentContainerView.topAnchor.constraint(equalTo: topAnchor, constant: arrowPosition == .top ? layoutPreferences.arrowHeight : 0),
@@ -147,6 +162,7 @@ public class NeatBubbleView: UIView {
     NSLayoutConstraint.activate(activeConstraints)
   }
 
+  /// Clears constraints if needed.
   private func clearConstraints() {
     NSLayoutConstraint.deactivate(activeConstraints)
     activeConstraints = []

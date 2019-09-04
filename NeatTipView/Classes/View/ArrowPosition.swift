@@ -7,6 +7,10 @@
 
 import Foundation
 
+/**
+ ArrowPosition defines the available orientations of the view's tip.
+ Each case defines where the tip is "pointing" to (so `top` will point upwards for example)
+*/
 public enum ArrowPosition {
   case top
   case bottom
@@ -14,10 +18,11 @@ public enum ArrowPosition {
   case right
   case any
 
+  // MARK: Helpers
   var isVerticalArrow: Bool {
     return self == .top || self == .bottom
   }
-
+  /// Returns the position counter part
   var counterpart: ArrowPosition {
     switch self {
     case .left:
@@ -33,10 +38,12 @@ public enum ArrowPosition {
     }
   }
 
+  /// Returns the available positions for the vertical axis
   static var verticalPositions: [ArrowPosition] {
     return [.top, .bottom]
   }
 
+  /// Returns the available positions for the horizontal axis
   static var horizontalPositions: [ArrowPosition] {
     return [.left, .right]
   }
