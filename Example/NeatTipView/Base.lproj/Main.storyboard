@@ -49,6 +49,13 @@
                                     <action selector="fromBottomButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BJq-Wd-0v9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hto-UW-kkD">
+                                <rect key="frame" x="132" y="521" width="111" height="30"/>
+                                <state key="normal" title="attach to button"/>
+                                <connections>
+                                    <action selector="attachToButtonTapped:" destination="2VW-6m-dKz" eventType="touchUpInside" id="y4V-kf-cO1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -59,7 +66,9 @@
                             <constraint firstItem="fcf-RG-K9e" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="Teg-hh-CTO"/>
                             <constraint firstItem="Nmg-DT-ERb" firstAttribute="top" secondItem="8NB-VS-v4Y" secondAttribute="bottom" constant="117" id="UJv-3U-aPO"/>
                             <constraint firstItem="fcf-RG-K9e" firstAttribute="top" secondItem="RBw-a3-xuB" secondAttribute="bottom" constant="77" id="e1H-UJ-sRF"/>
+                            <constraint firstItem="Hto-UW-kkD" firstAttribute="top" secondItem="uBM-8H-Kj1" secondAttribute="bottom" constant="42" id="lnt-No-Tam"/>
                             <constraint firstItem="RBw-a3-xuB" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="lwm-rp-s7s"/>
+                            <constraint firstItem="Hto-UW-kkD" firstAttribute="centerX" secondItem="uBM-8H-Kj1" secondAttribute="centerX" id="n8U-ML-0Cv"/>
                         </constraints>
                     </view>
                 </viewController>

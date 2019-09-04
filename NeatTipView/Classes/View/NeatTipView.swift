@@ -17,7 +17,7 @@ struct Constants {
 public class NeatTipView: UIView {
   public var arrowPosition: ArrowPosition
   public var preferences: NeatViewPreferences
-  public var parentView: UIView
+  public weak var parentView: UIView?
 
   var layoutPreferences: NeatLayoutPreferences {
     return preferences.layoutPreferences
@@ -105,6 +105,9 @@ public class NeatTipView: UIView {
 
   public func show() {
     translatesAutoresizingMaskIntoConstraints = false
+
+    guard let parentView = parentView else { return }
+
     parentView.addSubview(self)
 
     var constraints = [
@@ -131,6 +134,41 @@ public class NeatTipView: UIView {
         self?.layoutIfNeeded()
       }
     )
+  }
+
+  @discardableResult
+  public static func attach(
+    to sibling: UIView,
+    in superview: UIView,
+    with attributedString: NSAttributedString,
+    preferences: NeatViewPreferences = NeatViewPreferences(),
+    arrowPosition: ArrowPosition = .top
+  ) -> NeatTipView {
+    let tipView = NeatTipView(
+      superview: superview,
+      centerPoint: sibling.center,
+      attributedString:
+      attributedString,
+      preferences: preferences,
+      arrowPosition: arrowPosition
+    )
+
+    switch arrowPosition {
+    case .top:
+      tipView.bubbleView.centerPoint = CGPoint(x: sibling.frame.midX, y: sibling.frame.maxY)
+    case .bottom:
+      tipView.bubbleView.centerPoint = CGPoint(x: sibling.frame.midX, y: sibling.frame.minY)
+    case .left:
+      tipView.bubbleView.centerPoint = CGPoint(x: sibling.frame.maxX, y: sibling.frame.midY)
+    case .right:
+      tipView.bubbleView.centerPoint = CGPoint(x: sibling.frame.minX, y: sibling.frame.midY)
+    case .any:
+      break
+    }
+
+    tipView.show()
+
+    return tipView
   }
 
   //MARK: View lifecycle
