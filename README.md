@@ -13,6 +13,8 @@ NeatTipView allows you to display message tooltips that can be used as call to a
 - [x] Smart placement for dynamic strings.
 - [x] Full NSAttributtedString support.
 
+<img src="https://github.com/rootstrap/NeatTipView/blob/master/tipViewsExample.gif" height="440">
+
 ## Installation
 
 NeatTipView is available through [CocoaPods](http://cocoapods.org) and [Carthage]().
