@@ -16,7 +16,7 @@ class NeatExampleViewController: UIViewController {
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
     preferences.animationPreferences.disappearanceAnimationType = .toLeft
     showTipView(with: preferences,
-                center: sender.center,
+                center: CGPoint(x: sender.frame.minX, y: sender.frame.midY),
                 arrowPosition: .right)
   }
   
@@ -27,7 +27,7 @@ class NeatExampleViewController: UIViewController {
     preferences.bubbleStylePreferences.backgroundColor = .greeny
     preferences.bubbleStylePreferences.borderColor = .cadetBlue
     showTipView(with: preferences,
-                center: sender.center,
+                center:  CGPoint(x: sender.frame.maxX, y: sender.frame.midY),
                 arrowPosition: .left,
                 attributedText: neatAttributedString())
   }
@@ -36,7 +36,10 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromBottom
     preferences.animationPreferences.disappearanceAnimationType = .toBottom
-    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+    showTipView(with: preferences,
+                center: CGPoint(x: sender.frame.midX,
+                                y: sender.frame.maxY),
+                arrowPosition: .top)
   }
   
   @IBAction func fromTopButtonTapped(sender: UIButton) {
@@ -44,7 +47,11 @@ class NeatExampleViewController: UIViewController {
     preferences.animationPreferences.appearanceAnimationType = .fromTop
     preferences.animationPreferences.disappearanceAnimationType = .toTop
     preferences.bubbleStylePreferences.backgroundColor = .purply
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom, attributedText: neatAttributedString())
+    showTipView(with: preferences,
+                center: CGPoint(x: sender.frame.midX,
+                                y: sender.frame.minY),
+                arrowPosition: .bottom,
+                attributedText: neatAttributedString())
   }
   
   @IBAction func attachToButtonTapped(_ sender: UIButton) {
