@@ -45,7 +45,7 @@ Example:
 ```
 
 ### 2. Initialize and Present the tip
-```
+```swift
   let tipView = NeatTipView(
     superview: view,
     centerPoint: center,
