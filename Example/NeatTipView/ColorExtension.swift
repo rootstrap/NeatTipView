@@ -14,6 +14,8 @@ extension UIColor {
   static let purply = UIColor(red: 77, green: 73, blue: 190)
   static let altoGray = UIColor(red: 216, green: 216, blue: 216)
   static let cadetBlue = UIColor(red: 167, green: 175, blue: 199)
+  static let paleRose = UIColor(red: 255, green: 225, blue: 242)
+  static let gold = UIColor(red: 255, green: 215, blue: 0)
   
   convenience init(red: Int, green: Int, blue: Int) {
     self.init(red: min(CGFloat(red), 255.0) / 255.0,

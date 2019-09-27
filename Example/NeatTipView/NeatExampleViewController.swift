@@ -48,7 +48,12 @@ class NeatExampleViewController: UIViewController {
   }
   
   @IBAction func attachToButtonTapped(_ sender: UIButton) {
-    NeatTipView.attach(to: sender, in: view, with: attributedString(), arrowPosition: .top)
+    var preferences = NeatViewPreferences()
+    preferences.bubbleStylePreferences.backgroundColor = UIColor.paleRose
+    NeatTipView.attach(to: sender, in: view,
+                       with: diversityAttributedString(),
+                       preferences: preferences,
+                       arrowPosition: .top)
   }
 
   func showTipView(with preferences: NeatViewPreferences,
@@ -70,6 +75,26 @@ class NeatExampleViewController: UIViewController {
     attributedString.highlight(text: "NeatTipView",
                                with: [.font: UIFont.systemFont(ofSize: 15,
                                                                weight: .bold)])
+    
+    return attributedString
+  }
+  
+  func diversityAttributedString() -> NSAttributedString {
+    let coloredWords: [(UIColor, String)] =
+      [(UIColor.red, "This "), (UIColor.orange, "is a "),
+       (UIColor.gold, "diverse "), (UIColor.green, "Neat "),
+       (UIColor.blue, "Tip "), (UIColor.purple, "View ")]
+    
+    let attributedString = NSMutableAttributedString()
+    
+    coloredWords.forEach {
+     attributedString.append(
+      NSAttributedString(string: $0.1,
+                         attributes: [.strokeColor: UIColor.black,
+                                      .foregroundColor: $0.0,
+                                      .font: UIFont.systemFont(ofSize: 14, weight: .bold)])
+      )
+    }
     
     return attributedString
   }
