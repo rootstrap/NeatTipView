@@ -15,14 +15,21 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
     preferences.animationPreferences.disappearanceAnimationType = .toLeft
-    showTipView(with: preferences, center: sender.center, arrowPosition: .right)
+    showTipView(with: preferences,
+                center: sender.center,
+                arrowPosition: .right)
   }
   
   @IBAction func fromRightButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromRight
     preferences.animationPreferences.disappearanceAnimationType = .toRight
-    showTipView(with: preferences, center: sender.center, arrowPosition: .left)
+    preferences.bubbleStylePreferences.backgroundColor = .greeny
+    preferences.bubbleStylePreferences.borderColor = .cadetBlue
+    showTipView(with: preferences,
+                center: sender.center,
+                arrowPosition: .left,
+                attributedText: neatAttributedString())
   }
   
   @IBAction func fromBottomButtonTapped(sender: UIButton) {
@@ -36,7 +43,8 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromTop
     preferences.animationPreferences.disappearanceAnimationType = .toTop
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    preferences.bubbleStylePreferences.backgroundColor = .purply
+    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom, attributedText: neatAttributedString())
   }
   
   @IBAction func attachToButtonTapped(_ sender: UIButton) {
@@ -45,10 +53,11 @@ class NeatExampleViewController: UIViewController {
 
   func showTipView(with preferences: NeatViewPreferences,
                    center: CGPoint,
-                   arrowPosition: ArrowPosition) {
+                   arrowPosition: ArrowPosition,
+                   attributedText: NSAttributedString? = nil) {
     let tipView = NeatTipView(superview: view,
                               centerPoint: center,
-                              attributedString: attributedString(),
+                              attributedString: attributedText ?? attributedString(),
                               preferences: preferences,
                               arrowPosition: arrowPosition)
     tipView.show()
@@ -56,11 +65,48 @@ class NeatExampleViewController: UIViewController {
   
   func attributedString() -> NSAttributedString {
     let attributedString =
-      NSMutableAttributedString(string: "This is an example of one of the neat tips you can present using NeatTipView",
+      NSMutableAttributedString(string: "This is an example of one of the neat tips you can create with NeatTipView",
                                 attributes: [.font: UIFont.systemFont(ofSize: 15)])
     attributedString.highlight(text: "NeatTipView",
                                with: [.font: UIFont.systemFont(ofSize: 15,
                                                                weight: .bold)])
+    
+    return attributedString
+  }
+  
+  func neatAttributedString() -> NSAttributedString {
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.alignment = .center
+    paragraph.lineHeightMultiple = 0.8
+    
+    let attributedString = NSMutableAttributedString(
+      string: "100",
+      attributes: [
+        .font: UIFont.systemFont(ofSize: 26, weight: .semibold),
+        .foregroundColor: UIColor.white,
+        .paragraphStyle: paragraph]
+    )
+    attributedString.append(
+      NSAttributedString(
+        string: "%\n",
+        attributes: [
+          .font: UIFont.systemFont(ofSize: 14,
+                                   weight: .medium),
+          .foregroundColor: UIColor.white,
+          .baselineOffset: 8
+        ]
+      )
+    )
+    attributedString.append(
+      NSAttributedString(
+        string: "NEAT TIPS",
+        attributes: [
+          .font: UIFont.systemFont(ofSize: 11, weight: .semibold),
+          .foregroundColor: UIColor.white,
+          .paragraphStyle: paragraph
+        ]
+      )
+    )
     
     return attributedString
   }

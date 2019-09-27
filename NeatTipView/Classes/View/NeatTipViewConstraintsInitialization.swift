@@ -41,18 +41,25 @@ extension NeatTipView {
   var bubbleToViewHorizontalConstraint: NSLayoutConstraint {
     if arrowPosition == .left {
       return bubbleView.trailingAnchor.constraint(
-        equalTo: trailingAnchor,
+        lessThanOrEqualTo: trailingAnchor,
         constant: -layoutPreferences.horizontalInsets
       )
     } else {
       return bubbleView.leadingAnchor.constraint(
-        equalTo: leadingAnchor,
+        greaterThanOrEqualTo: leadingAnchor,
         constant: layoutPreferences.horizontalInsets
       )
     }
   }
 
   var bubblePositionConstraints: [NSLayoutConstraint] {
+    let size = bubbleView.attributedString.size()
+    let bubbleLeadingConstraint = bubbleView.leadingAnchor.constraint(
+      equalTo: leadingAnchor,
+      constant: bubbleView.centerPoint.x + layoutPreferences.contentHorizontalInsets - size.width / 2
+      )
+    bubbleLeadingConstraint.priority = .defaultLow
+
     switch arrowPosition {
     case .any, .top:
       return [
@@ -60,13 +67,17 @@ extension NeatTipView {
           equalTo: topAnchor,
           constant: bubbleView.centerPoint.y + layoutPreferences.contentVerticalInsets
         ),
+        bubbleLeadingConstraint,
         bubbleView.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor),
       ]
     case .bottom:
-      return [bubbleView.bottomAnchor.constraint(
-        equalTo: topAnchor,
-        constant: bubbleView.centerPoint.y - layoutPreferences.contentVerticalInsets
-        )]
+      return [
+        bubbleView.bottomAnchor.constraint(
+          equalTo: topAnchor,
+          constant: bubbleView.centerPoint.y - layoutPreferences.contentVerticalInsets
+        ),
+        bubbleLeadingConstraint
+      ]
     case .left:
       return [
         bubbleView.leadingAnchor.constraint(
