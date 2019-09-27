@@ -13,8 +13,7 @@
     <a title="NeatTipView  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NeatTipView 1.0.0 Docs</a> (30% documented)</p>
-        <p class="header-right"><a href="https://github.com/rootstrap/NeatTipView"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p><a href="index.html">NeatTipView Docs</a> (0% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -27,51 +26,6 @@
     <div class="content-wrapper">
       <nav class="sidebar">
         <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Classes/NeatBubbleView.html">NeatBubbleView</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/NeatTipView.html">NeatTipView</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums/AppearanceAnimationType.html">AppearanceAnimationType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/ArrowPosition.html">ArrowPosition</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/DisappearanceAnimationType.html">DisappearanceAnimationType</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/NeatAnimationPreferences.html">NeatAnimationPreferences</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/NeatBubbleStylePreferences.html">NeatBubbleStylePreferences</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/NeatLayoutPreferences.html">NeatLayoutPreferences</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/NeatOverlayStylePreferences.html">NeatOverlayStylePreferences</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/NeatViewPreferences.html">NeatViewPreferences</a>
-              </li>
-            </ul>
-          </li>
         </ul>
       </nav>
       <article class="main-content">
@@ -80,10 +34,67 @@
             
             <h1 id='neattipview' class='heading'>NeatTipView</h1>
 
+<p><a href="http://cocoapods.org/pods/NeatTipView"><img src="https://img.shields.io/cocoapods/v/NeatTipView.svg?style=flat&colorA=000000" alt="Version"></a>
+<a href="http://cocoapods.org/pods/NeatTipView"><img src="https://img.shields.io/cocoapods/l/NeatTipView.svg?style=flat&colorA=000000" alt="License"></a>
+<a href="http://cocoapods.org/pods/NeatTipView"><img src="https://img.shields.io/cocoapods/p/NeatTipView.svg?style=flat&colorA=000000" alt="Platform"></a></p>
+<h2 id='what-is-it' class='heading'>What is it?</h2>
+
+<p>NeatTipView allows you to display message tooltips that can be used as call to actions or informative tips.</p>
+
+<ul>
+<li>[x] Allows Different tip positionings.</li>
+<li>[x] Multiple animation styles.</li>
+<li>[x] Smart placement for dynamic strings.</li>
+<li>[x] Full NSAttributtedString support.</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>NeatTipView is available through <a href="http://cocoapods.org">CocoaPods</a> and <a href="">Carthage</a>.</p>
+<h3 id='cocoapods' class='heading'>Cocoapods</h3>
+
+<p>To install it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"NeatTipView"</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>To install it, simply add the following line to your Cartfile:</p>
+<pre class="highlight plaintext"><code>github "rootstrap/NeatTipView"
+</code></pre>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='1-customize-your-preferences' class='heading'>1. Customize your preferences</h3>
+
+<p>Preferences are encapsulated inside the <code>NeatViewPreferences</code> struct, check the inline docs for more info about which customization points are available.</p>
+
+<p>Example:</p>
+<pre class="highlight swift"><code>  <span class="k">var</span> <span class="nv">preferences</span> <span class="o">=</span> <span class="kt">NeatViewPreferences</span><span class="p">()</span>
+  <span class="n">preferences</span><span class="o">.</span><span class="n">animationPreferences</span><span class="o">.</span><span class="n">appearanceAnimationType</span> <span class="o">=</span> <span class="o">.</span><span class="n">fromBottom</span>
+  <span class="n">preferences</span><span class="o">.</span><span class="n">animationPreferences</span><span class="o">.</span><span class="n">disappearanceAnimationType</span> <span class="o">=</span> <span class="o">.</span><span class="n">toBottom</span>
+</code></pre>
+<h3 id='2-initialize-and-present-the-tip' class='heading'>2. Initialize and Present the tip</h3>
+<pre class="highlight plaintext"><code>  let tipView = NeatTipView(
+    superview: view,
+    centerPoint: center,
+    attributedString: attributedString(),
+                            preferences: preferences,
+                            arrowPosition: arrowPosition)
+  tipView.show()
+</code></pre>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>NeatTipView is available under the MIT license. See the LICENSE file for more info.</p>
+<h2 id='credits' class='heading'>Credits</h2>
+
+<p><strong>NeatTipView</strong> is maintained by <a href="http://www.rootstrap.com">Rootstrap</a> with the help of our <a href="https://github.com/rootstrap/NeatTipView/contributors">contributors</a>.</p>
+
+<p><a href="http://www.rootstrap.com"><img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/></a></p>
+
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://rootstrap.com" target="_blank" rel="external">Rootstrap</a>. All rights reserved. (Last updated: 2019-09-04)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/rootstrap/NeatTipView" target="_blank" rel="external">german.stabile@gmail.com</a>. All rights reserved. (Last updated: 2019-09-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
