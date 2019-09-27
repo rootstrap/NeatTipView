@@ -15,40 +15,61 @@ class NeatExampleViewController: UIViewController {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
     preferences.animationPreferences.disappearanceAnimationType = .toLeft
-    showTipView(with: preferences, center: sender.center, arrowPosition: .right)
+    showTipView(with: preferences,
+                center: CGPoint(x: sender.frame.minX, y: sender.frame.midY),
+                arrowPosition: .right)
   }
   
   @IBAction func fromRightButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromRight
     preferences.animationPreferences.disappearanceAnimationType = .toRight
-    showTipView(with: preferences, center: sender.center, arrowPosition: .left)
+    preferences.bubbleStylePreferences.backgroundColor = .greeny
+    preferences.bubbleStylePreferences.borderColor = .cadetBlue
+    showTipView(with: preferences,
+                center:  CGPoint(x: sender.frame.maxX, y: sender.frame.midY),
+                arrowPosition: .left,
+                attributedText: neatAttributedString())
   }
   
   @IBAction func fromBottomButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromBottom
     preferences.animationPreferences.disappearanceAnimationType = .toBottom
-    showTipView(with: preferences, center: sender.center, arrowPosition: .top)
+    showTipView(with: preferences,
+                center: CGPoint(x: sender.frame.midX,
+                                y: sender.frame.maxY),
+                arrowPosition: .top)
   }
   
   @IBAction func fromTopButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromTop
     preferences.animationPreferences.disappearanceAnimationType = .toTop
-    showTipView(with: preferences, center: sender.center, arrowPosition: .bottom)
+    preferences.bubbleStylePreferences.backgroundColor = .purply
+    showTipView(with: preferences,
+                center: CGPoint(x: sender.frame.midX,
+                                y: sender.frame.minY),
+                arrowPosition: .bottom,
+                attributedText: neatAttributedString())
   }
   
   @IBAction func attachToButtonTapped(_ sender: UIButton) {
-    NeatTipView.attach(to: sender, in: view, with: attributedString(), arrowPosition: .top)
+    var preferences = NeatViewPreferences()
+    preferences.bubbleStylePreferences.backgroundColor = UIColor.paleRose
+    NeatTipView.attach(to: sender, in: view,
+                       with: diversityAttributedString(),
+                       preferences: preferences,
+                       arrowPosition: .top)
   }
 
   func showTipView(with preferences: NeatViewPreferences,
                    center: CGPoint,
-                   arrowPosition: ArrowPosition) {
+                   arrowPosition: ArrowPosition,
+                   attributedText: NSAttributedString? = nil) {
     let tipView = NeatTipView(superview: view,
                               centerPoint: center,
-                              attributedString: attributedString(),
+                              attributedString: attributedText ?? attributedString(),
                               preferences: preferences,
                               arrowPosition: arrowPosition)
     tipView.show()
@@ -56,11 +77,68 @@ class NeatExampleViewController: UIViewController {
   
   func attributedString() -> NSAttributedString {
     let attributedString =
-      NSMutableAttributedString(string: "This is an example of one of the neat tips you can present using NeatTipView",
+      NSMutableAttributedString(string: "This is an example of one of the neat tips you can create with NeatTipView",
                                 attributes: [.font: UIFont.systemFont(ofSize: 15)])
     attributedString.highlight(text: "NeatTipView",
                                with: [.font: UIFont.systemFont(ofSize: 15,
                                                                weight: .bold)])
+    
+    return attributedString
+  }
+  
+  func diversityAttributedString() -> NSAttributedString {
+    let coloredWords: [(UIColor, String)] =
+      [(UIColor.red, "This "), (UIColor.orange, "is a "),
+       (UIColor.gold, "diverse "), (UIColor.green, "Neat "),
+       (UIColor.blue, "Tip "), (UIColor.purple, "View ")]
+    
+    let attributedString = NSMutableAttributedString()
+    
+    coloredWords.forEach {
+     attributedString.append(
+      NSAttributedString(string: $0.1,
+                         attributes: [.strokeColor: UIColor.black,
+                                      .foregroundColor: $0.0,
+                                      .font: UIFont.systemFont(ofSize: 14, weight: .bold)])
+      )
+    }
+    
+    return attributedString
+  }
+  
+  func neatAttributedString() -> NSAttributedString {
+    let paragraph = NSMutableParagraphStyle()
+    paragraph.alignment = .center
+    paragraph.lineHeightMultiple = 0.8
+    
+    let attributedString = NSMutableAttributedString(
+      string: "100",
+      attributes: [
+        .font: UIFont.systemFont(ofSize: 26, weight: .semibold),
+        .foregroundColor: UIColor.white,
+        .paragraphStyle: paragraph]
+    )
+    attributedString.append(
+      NSAttributedString(
+        string: "%\n",
+        attributes: [
+          .font: UIFont.systemFont(ofSize: 14,
+                                   weight: .medium),
+          .foregroundColor: UIColor.white,
+          .baselineOffset: 8
+        ]
+      )
+    )
+    attributedString.append(
+      NSAttributedString(
+        string: "NEAT TIPS",
+        attributes: [
+          .font: UIFont.systemFont(ofSize: 11, weight: .semibold),
+          .foregroundColor: UIColor.white,
+          .paragraphStyle: paragraph
+        ]
+      )
+    )
     
     return attributedString
   }

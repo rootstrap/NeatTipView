@@ -62,7 +62,7 @@ public class NeatBubbleView: UIView {
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.text = attributedString.string
+    label.attributedText = attributedString
 
     return label
   }()
@@ -149,6 +149,8 @@ public class NeatBubbleView: UIView {
       contentContainerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: arrowPosition == .bottom ? -layoutPreferences.arrowHeight : 0),
       contentContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: arrowPosition == .left ? layoutPreferences.arrowHeight : 0),
       contentContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: arrowPosition == .right ? -layoutPreferences.arrowHeight : 0),
+      contentContainerView.widthAnchor.constraint(greaterThanOrEqualToConstant: layoutPreferences.arrowWidth + layoutPreferences.arrowHeight),
+      contentContainerView.heightAnchor.constraint(greaterThanOrEqualToConstant: layoutPreferences.arrowWidth + layoutPreferences.arrowHeight),
       label.leadingAnchor.constraint(equalTo: contentContainerView.leadingAnchor,
                                      constant: layoutPreferences.contentHorizontalInsets),
       label.trailingAnchor.constraint(equalTo: contentContainerView.trailingAnchor,

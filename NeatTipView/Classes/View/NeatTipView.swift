@@ -56,20 +56,6 @@ public class NeatTipView: UIView {
   /// Bubble's constraints to it's superview.
   lazy var bubbleConstraints: [NSLayoutConstraint] = createBubbleConstraints()
 
-  /// Bottom distance defines bottom positioning using the center point as a reference.
-  var bubbleDistanceFromBottom: CGFloat {
-    //for initial constraints the bound is zero for smoother animations assume the superview is as big as the screen
-    let viewHeight = bounds.height == 0 ? Constants.screenHeight : bounds.height
-    return viewHeight - bubbleView.centerPoint.y +
-      layoutPreferences.verticalInsets + layoutPreferences.arrowHeight
-  }
-
-  /// Top distance defines top positioning using the center point as a reference.
-  var bubbleDistanceFromTop: CGFloat {
-    return bubbleView.centerPoint.y + layoutPreferences.arrowHeight +
-      layoutPreferences.verticalInsets
-  }
-
   /// Defines Y axis centering using content size and the center point.
   var verticalCenterBubbleConstraint: NSLayoutConstraint {
     let availableWidth = bubbleView.centerPoint.x -
@@ -77,10 +63,12 @@ public class NeatTipView: UIView {
       layoutPreferences.arrowHeight
 
     let size = bubbleView.attributedString.size(
-      with: CGSize(width: availableWidth,height: CGFloat.greatestFiniteMagnitude)
+      with: CGSize(width: availableWidth, height: CGFloat.greatestFiniteMagnitude)
     )
+    
+    let minHeight: CGFloat = 70
 
-    let offset =  max(bubbleView.centerPoint.y - size.height + layoutPreferences.contentVerticalInsets, 0)
+    let offset =  max(bubbleView.centerPoint.y - max(size.height, minHeight) + layoutPreferences.contentVerticalInsets, 0)
     return bubbleView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: offset)
   }
 

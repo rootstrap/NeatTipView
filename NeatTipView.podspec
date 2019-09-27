@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NeatTipView'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Display tooltip views in swift.'
 
 # This description is used to generate tags and improve search results.
