@@ -11,6 +11,38 @@ import UIKit
 
 class NeatExampleViewController: UIViewController {
   
+  @IBOutlet weak var fromLeftButton: UIButton!
+  @IBOutlet weak var fromRightButton: UIButton!
+  @IBOutlet weak var fromTopButton: UIButton!
+  @IBOutlet weak var fromBottomButton: UIButton!
+  @IBOutlet weak var attachButton: UIButton!
+  
+  override func viewDidLoad() {
+    fromLeftButton.configure(titleColor: .sharkBlack)
+    fromRightButton.configure(
+      bkgColor: .heliotropePurple,
+      borderColor: .heliotropePurple
+    )
+    fromTopButton.configure(
+      bkgColor: .anakiwaBlue,
+      borderColor: .anakiwaBlue,
+      titleColor: .sharkBlack
+    )
+    fromBottomButton.configure(
+      bkgColor: .white,
+      titleColor: .aquamarineGreen
+    )
+    attachButton.configure(
+      bkgColor: .white,
+      borderColor: .heliotropePurple,
+      titleColor: .heliotropePurple
+    )
+    
+    fromLeftButton.addShadow()
+    fromRightButton.addShadow()
+    fromTopButton.addShadow()
+  }
+  
   @IBAction func fromLeftButtonTapped(sender: UIButton) {
     var preferences = NeatViewPreferences()
     preferences.animationPreferences.appearanceAnimationType = .fromLeft
