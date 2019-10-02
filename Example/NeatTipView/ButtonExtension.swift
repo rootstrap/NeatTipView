@@ -30,16 +30,4 @@ extension UIButton {
     )
     setTitleColor(titleColor, for: .normal)
   }
-  
-  func addShadow(
-    color: UIColor = .gray,
-    offset: CGSize = CGSize(width: 1, height: 1),
-    opacity: Float = 0.3,
-    radius: CGFloat = 5
-  ) {
-    layer.shadowRadius = radius
-    layer.shadowColor = color.cgColor
-    layer.shadowOffset = offset
-    layer.shadowOpacity = opacity
-  }
 }

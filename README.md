@@ -1,4 +1,4 @@
-# NeatTipView
+# <img src="https://github.com/rootstrap/NeatTipView/blob/master/NeatTipViewLogo.png" height="80">
 [![Version](https://img.shields.io/cocoapods/v/NeatTipView.svg?style=flat&colorA=000000)](http://cocoapods.org/pods/NeatTipView)
 [![License](https://img.shields.io/cocoapods/l/NeatTipView.svg?style=flat&colorA=000000)](http://cocoapods.org/pods/NeatTipView)
 [![Platform](https://img.shields.io/cocoapods/p/NeatTipView.svg?style=flat&colorA=000000)](http://cocoapods.org/pods/NeatTipView)
