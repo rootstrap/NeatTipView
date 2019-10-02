@@ -16,6 +16,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		816D68EC2343CAD500F8359E /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816D68EB2343CAD500F8359E /* ButtonExtension.swift */; };
 		BD495E6E7F0A3109B8D378B3 /* Pods_NeatTipView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EEBA49DA164FE947F3542D /* Pods_NeatTipView_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,14 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62EEBA49DA164FE947F3542D /* Pods_NeatTipView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeatTipView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A76EAAF01D4780C79491809 /* Pods-NeatTipView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeatTipView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NeatTipView_Tests/Pods-NeatTipView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		816D68EB2343CAD500F8359E /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		816F3D03234516D200CE72E3 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		816F3D04234516D200CE72E3 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		816F3D06234516D200CE72E3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		816F3D07234516D200CE72E3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		816F3D09234516D200CE72E3 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		816F3D0B234516D200CE72E3 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		816F3D0C234516D200CE72E3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		824FF227B0C0B0BDE12A1DE1 /* Pods_NeatTipView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeatTipView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AFF273B7D9DA90389AD22AE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B8D3518470985C00A96E9AF5 /* Pods-NeatTipView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeatTipView_Example.debug.xcconfig"; path = "Target Support Files/Pods-NeatTipView_Example/Pods-NeatTipView_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +106,8 @@
 		607FACD21AFB9204008FA782 /* Example for NeatTipView */ = {
 			isa = PBXGroup;
 			children = (
+				816F3D02234516A800CE72E3 /* Fonts */,
+				816D68EA2343CABF00F8359E /* Extensions */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -104,7 +115,6 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				075C31FB22E22FDA001D2067 /* NeatExampleViewController.swift */,
 				075C31FD22E23935001D2067 /* MutableAttributedStringExtension.swift */,
-				0701E954233E68AD00E10FF3 /* ColorExtension.swift */,
 			);
 			name = "Example for NeatTipView";
 			path = NeatTipView;
@@ -154,6 +164,29 @@
 				55B9F9B33953305A688DD241 /* Pods-NeatTipView_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		816D68EA2343CABF00F8359E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0701E954233E68AD00E10FF3 /* ColorExtension.swift */,
+				816D68EB2343CAD500F8359E /* ButtonExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		816F3D02234516A800CE72E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				816F3D0B234516D200CE72E3 /* Roboto-Black.ttf */,
+				816F3D04234516D200CE72E3 /* Roboto-Bold.ttf */,
+				816F3D03234516D200CE72E3 /* Roboto-Italic.ttf */,
+				816F3D06234516D200CE72E3 /* Roboto-Light.ttf */,
+				816F3D0C234516D200CE72E3 /* Roboto-Medium.ttf */,
+				816F3D07234516D200CE72E3 /* Roboto-Regular.ttf */,
+				816F3D09234516D200CE72E3 /* Roboto-Thin.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		90FA05006CFAAB645AECEB99 /* Frameworks */ = {
@@ -338,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075C31FE22E23935001D2067 /* MutableAttributedStringExtension.swift in Sources */,
+				816D68EC2343CAD500F8359E /* ButtonExtension.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				075C31FC22E22FDA001D2067 /* NeatExampleViewController.swift in Sources */,
 				0701E955233E68AD00E10FF3 /* ColorExtension.swift in Sources */,

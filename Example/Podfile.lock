@@ -1,5 +1,5 @@
 PODS:
-  - NeatTipView (1.0.0)
+  - NeatTipView (1.0.1)
 
 DEPENDENCIES:
   - NeatTipView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NeatTipView: e788cb08cdfd08da371d041836e4cbbe37f2036b
+  NeatTipView: e1a80fcea835e74a0ed3fb260b1f62a907013e78
 
 PODFILE CHECKSUM: 7896c3e107576f12b6c365708e391e5976da644d
 

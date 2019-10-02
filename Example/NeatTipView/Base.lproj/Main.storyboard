@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Neat Example View Controller-->
         <scene sceneID="XXZ-o8-iHb">
@@ -22,59 +27,85 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nmg-DT-ERb">
-                                <rect key="frame" x="158" y="137" width="59" height="30"/>
+                                <rect key="frame" x="155" y="173" width="65" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="from left"/>
                                 <connections>
                                     <action selector="fromLeftButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BVs-nJ-Uls"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBw-a3-xuB">
-                                <rect key="frame" x="153.5" y="232" width="68" height="30"/>
+                                <rect key="frame" x="150" y="275" width="75" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="from right"/>
                                 <connections>
                                     <action selector="fromRightButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="vkr-DW-fWj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-RG-K9e">
-                                <rect key="frame" x="158" y="339" width="59" height="30"/>
+                                <rect key="frame" x="155" y="377" width="65" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="from top"/>
                                 <connections>
                                     <action selector="fromTopButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="mma-CN-mKm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBM-8H-Kj1">
-                                <rect key="frame" x="144.5" y="449" width="86" height="30"/>
+                                <rect key="frame" x="139.5" y="479" width="96" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="from bottom"/>
                                 <connections>
                                     <action selector="fromBottomButtonTappedWithSender:" destination="2VW-6m-dKz" eventType="touchUpInside" id="BJq-Wd-0v9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hto-UW-kkD">
-                                <rect key="frame" x="132" y="521" width="111" height="30"/>
+                                <rect key="frame" x="127" y="581" width="121" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <state key="normal" title="attach to button"/>
                                 <connections>
                                     <action selector="attachToButtonTapped:" destination="2VW-6m-dKz" eventType="touchUpInside" id="y4V-kf-cO1"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="HOF-tC-q5d">
+                                <rect key="frame" x="67.5" y="57" width="240" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="ZsQ-1F-2Dl"/>
+                                    <constraint firstAttribute="width" constant="240" id="vtv-19-Rqs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nmg-DT-ERb" firstAttribute="centerX" secondItem="h3G-cJ-stE" secondAttribute="centerX" id="EVL-aY-3IT"/>
-                            <constraint firstItem="RBw-a3-xuB" firstAttribute="top" secondItem="Nmg-DT-ERb" secondAttribute="bottom" constant="65" id="I9K-oC-ocg"/>
+                            <constraint firstItem="HOF-tC-q5d" firstAttribute="centerX" secondItem="h3G-cJ-stE" secondAttribute="centerX" id="FDH-qv-f9d"/>
+                            <constraint firstItem="Nmg-DT-ERb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h3G-cJ-stE" secondAttribute="leading" constant="25" id="HUr-Jj-E5t"/>
+                            <constraint firstItem="RBw-a3-xuB" firstAttribute="top" secondItem="Nmg-DT-ERb" secondAttribute="bottom" constant="70" id="I9K-oC-ocg"/>
                             <constraint firstItem="uBM-8H-Kj1" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="LJd-sB-gH5"/>
-                            <constraint firstItem="uBM-8H-Kj1" firstAttribute="top" secondItem="fcf-RG-K9e" secondAttribute="bottom" constant="80" id="Ooh-ga-ABX"/>
+                            <constraint firstItem="Nmg-DT-ERb" firstAttribute="top" secondItem="HOF-tC-q5d" secondAttribute="bottom" constant="70" id="O6Z-I7-FxF"/>
+                            <constraint firstItem="uBM-8H-Kj1" firstAttribute="top" secondItem="fcf-RG-K9e" secondAttribute="bottom" constant="70" id="Ooh-ga-ABX"/>
                             <constraint firstItem="fcf-RG-K9e" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="Teg-hh-CTO"/>
-                            <constraint firstItem="Nmg-DT-ERb" firstAttribute="top" secondItem="8NB-VS-v4Y" secondAttribute="bottom" constant="117" id="UJv-3U-aPO"/>
-                            <constraint firstItem="fcf-RG-K9e" firstAttribute="top" secondItem="RBw-a3-xuB" secondAttribute="bottom" constant="77" id="e1H-UJ-sRF"/>
-                            <constraint firstItem="Hto-UW-kkD" firstAttribute="top" secondItem="uBM-8H-Kj1" secondAttribute="bottom" constant="42" id="lnt-No-Tam"/>
+                            <constraint firstItem="fcf-RG-K9e" firstAttribute="top" secondItem="RBw-a3-xuB" secondAttribute="bottom" constant="70" id="e1H-UJ-sRF"/>
+                            <constraint firstItem="Hto-UW-kkD" firstAttribute="top" secondItem="uBM-8H-Kj1" secondAttribute="bottom" constant="70" id="lnt-No-Tam"/>
                             <constraint firstItem="RBw-a3-xuB" firstAttribute="centerX" secondItem="Nmg-DT-ERb" secondAttribute="centerX" id="lwm-rp-s7s"/>
+                            <constraint firstItem="HOF-tC-q5d" firstAttribute="top" secondItem="8NB-VS-v4Y" secondAttribute="bottom" constant="37" id="lzN-tM-Vgd"/>
                             <constraint firstItem="Hto-UW-kkD" firstAttribute="centerX" secondItem="uBM-8H-Kj1" secondAttribute="centerX" id="n8U-ML-0Cv"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nmg-DT-ERb" secondAttribute="trailing" constant="25" id="o6y-wj-mHY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="attachButton" destination="Hto-UW-kkD" id="DZn-DB-0rg"/>
+                        <outlet property="fromBottomButton" destination="uBM-8H-Kj1" id="e5z-ti-Iiz"/>
+                        <outlet property="fromLeftButton" destination="Nmg-DT-ERb" id="CVH-1F-2pB"/>
+                        <outlet property="fromRightButton" destination="RBw-a3-xuB" id="Qi7-6W-zvE"/>
+                        <outlet property="fromTopButton" destination="fcf-RG-K9e" id="SO1-Vf-SPz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Glh-qf-n7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="0.0"/>
+            <point key="canvasLocation" x="66.400000000000006" y="-0.44977511244377816"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="556" height="142"/>
+    </resources>
 </document>
